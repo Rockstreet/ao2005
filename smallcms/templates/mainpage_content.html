@@ -1,0 +1,75 @@
+{% load thumbnail %}
+<div class="row justify-content-center big_img_blok">
+
+
+    <div class="inline_bloks" >
+    </div>
+
+    <div class="inline_bloks" id="block1" >
+        <a href="/shop/rybalka-i-turizm/"><img  src="/static/images/fish_img.jpg" ></a>
+    </div>
+
+    <div class="inline_bloks" >
+    </div>
+
+    <div class="inline_bloks" id="block2">
+        <a href="/shop/sport/"><img src="/static/images/sport_img.jpg" ></a>
+    </div>
+
+    <div class="inline_bloks" >
+    </div>
+
+</div>
+
+
+
+
+
+
+{% block action %}
+
+        {% include "action.html" %}
+
+{% endblock action %}
+
+
+
+        <div class="row" >
+
+            <div class="col-12 video_bg mt-5 text center" style="cursor: pointer;">
+                <div>
+                <img src="/static/images/youtubebutton.png">
+                    <h2>НАШИ ВИДЕО ОБЗОРЫ</h2>
+                </div>
+            </div>
+
+        </div>
+
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Новости</h1>
+        </div>
+    </div>
+
+    <div class="row text-left">
+
+        <div class="col-3 offset-2" style="cursor: pointer;">
+
+            <img src="/static/images/news1.jpg">
+            <div class="news_block">Активный отдых стал спонсором большого рыболовного праздника </div>
+            <div class="news_block_tail">12.05.2018</div>
+
+        </div>
+
+
+        <div class="col-3 offset-2" style="cursor: pointer;">
+
+            <img src="/static/images/news2.jpg">
+            <div class="news_block">Активный отдых стал спонсором большого рыболовного праздника  и нетолько </div>
+            <div class="news_block_tail">12.05.2018</div>
+
+        </div>
+
+
+    </div>

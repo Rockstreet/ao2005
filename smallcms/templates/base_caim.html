@@ -1,0 +1,795 @@
+{% load staticfiles %}
+{% load thumbnail %}
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <meta name="description" content="{% block description %}{% endblock description %}" />
+        <meta name="keywords" content="{% block keywords %}{% endblock keywords %}" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="yandex-verification" content="589e8cb4ec1096c2" />
+		<meta name="google-site-verification" content="LgoK6cbqfe0U2Y5_81KZs3OQ05T36iPpuuDu-bOsPVw" />
+
+		<link rel="icon" type="image/x-icon" href="/static/images/favicon.png" />
+
+		<link href="/static/css/master.css" rel="stylesheet" async>
+
+        <link href="/static/css/ekko-lightbox.min.css" rel="stylesheet">
+
+
+
+		<link rel="alternate stylesheet" type="text/css" href="/static/assets/switcher/css/color3.css" title="color3" media="all"  data-default-color="true"/>
+
+		
+		<!--[if lt IE 9]>
+		<script src="/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="/oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<style>
+
+			.top-nav{background-color: #000000 }
+			.top-nav__main{background-color: #000000 }
+			.my_menu_white {color:#FFF !important;}
+			body {font-family: 'Arsenal',sans-serif;}
+
+
+
+            body{
+
+            {%if sitting.back_image %}
+
+                background:  url('{{sitting.back_image.url}}') no-repeat;
+            {%endif%}
+
+
+            {%if sitting.back_color %}
+
+                background-color: {{sitting.back_color|safe}};
+            {%endif%}
+
+
+            {%if sitting.back_resize %}
+
+                background-size: 100% 100%;
+            {% else %}
+               background-size: 100%;
+            {%endif%}
+
+
+			background-attachment:fixed;
+
+
+
+
+
+            }
+
+
+
+
+            .img_hover {  width: 300px;  position: absolute;  z-index: 50;  left: 174px;  border: black 1px solid;  }
+			.ekko-lightbox-nav-overlay a span { color: #888;}
+
+		</style>
+        <script>
+            var URLS = {
+                addItem:        '{% url "cart-add" %}',
+                removeItem:     '{% url "cart-remove" %}',
+                changeQuantity: '{% url "cart-change-quantity" %}',
+                emptyCart:      '{% url "cart-empty" %}'
+            };
+            var cart = {
+                add: function (pk, quantity) {
+                    quantity = quantity || 1;
+                    return $.post(URLS.addItem, {pk: pk, quantity: quantity, csrfmiddlewaretoken: '{{ csrf_token }}'}, function( data ) { document.location.href = document.location.href; }, 'json');
+                },
+
+                remove: function (itemPK) {
+                    $.post(URLS.removeItem, {pk: itemPK, csrfmiddlewaretoken: '{{ csrf_token }}'}, function( data ) { document.location.href = document.location.href; }, 'json');
+                },
+
+                changeQuantity: function (pk, quantity) {
+                    return $.post(URLS.changeQuantity, {pk: pk, quantity: quantity, csrfmiddlewaretoken: '{{ csrf_token }}'}, function( data ) { document.location.href = document.location.href; }, 'json');
+                },
+
+                empty: function () {
+                    $.post(URLS.emptyCart, {csrfmiddlewaretoken: '{{ csrf_token }}'}, function( data ) { document.location.href = document.location.href; }, 'json');
+                }
+            }
+        </script>
+
+	</head>
+	<body>
+		<!-- Loader -->
+		<div id="page-preloader"><span class="spinner"></span></div>
+		 <!--Loader end -->
+
+
+		{% comment %}
+
+		<header id="header-top" class="top-header" style="background-color: {{ sitting.main_back_color | safe }};">
+			<div class="container">
+				<div class="top-header__main wow slideInDown" data-wow-delay="0.7s" data-wow-duration="1.5s">
+					<div class="row">
+						<div class="col-xs-2">
+							<div class="social social--top clearfix">
+								<a href="{{ sitting.vk_link | safe }}" class="social__one square">
+									<span class="fa fa-vk"></span>
+								</a>
+								<a href="{{ sitting.fb_link | safe }}" class="social__one square">
+									<span class="fa fa-facebook"></span>
+								</a>
+
+								</a>
+							</div>
+
+
+
+
+
+						</div>
+						<div class="col-xs-10">
+							<div class="header-contacts clearfix">
+
+								<div class="header-contacts__one">
+
+                                    {% if user and not user.is_anonymous %}
+                                        <a href="{% url 'profile:edit_user' %}" class="header-contacts__email square">
+                                            <span class="fa fa-user" aria-hidden="true"></span>
+                                        </a>
+
+                                        <a href="{% url 'profile:edit_user' %}">{{ user.username }}</a>&nbsp;
+                                        <a href="{% url 'auth_logout' %}" class="header-contacts__link">Выход</a>
+                                    {% else %}
+
+
+                                        <a href="/register/" class="header-contacts__email square">
+                                            <span class="fa fa-user-plus"></span>
+                                        </a>
+                                        <a href="/register/" class="header-contacts__link">Регистрация</a>
+                                        </div>
+                                        <div class="header-contacts__one">
+                                        <a href="{% url 'auth_login' %}" class="header-contacts__email square">
+                                            <span class="fa fa-sign-in"></span>
+                                        </a>
+                                        <a href="{% url 'auth_login' %}" class="header-contacts__link">Вход</a>
+
+
+                                    {% endif %}
+
+
+								</div>
+								<div class="header-contacts__one">
+									<a href="/page/kontakty/" class="header-contacts__phone square">
+										<span class="fa fa-phone"></span>
+									</a>
+									<a href="/page/kontakty/" class="header-contacts__link">{{ sitting.phone1 }}</a>
+								</div>
+								<div class="header-contacts__one">
+									<a href="/page/kontakty/" class="header-contacts__email square">
+										<span class="fa fa-envelope"></span>
+									</a>
+									<a href="mailto:{{ sitting.email1 }}" class="header-contacts__link">{{ sitting.email1 }}</a>
+								</div>
+
+                                <div class="header-contacts__one">
+
+
+									<a href="{% url "shop:cart_list" %}" class="header-contacts__phone square" style="background-color: #ffc73c;color: #FFF;" title="Оформить заказ">
+										<span class="fa fa-shopping-cart"></span>
+									</a>
+                                    Товаров: <b>{{ cart.item_count }}</b> На сумму: <b>{{ real_count_cart }}  р.</b> <a href="{% url "shop:cart_list" %}">Оформить заказ</a>
+
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header><!--top-header-->
+
+		{% endcomment %}
+
+		<nav class="row">
+			<div class="container">
+				<div class="top-nav__main">
+					<div class="row">
+						<div class="col-md-3 col-xs-12 text-center">
+							<a href="/" >
+								<span>
+									<img src="/static/images/logocaiman2.jpg" alt="logo">
+								</span>
+
+							</a>
+						</div>
+						<div class="col-md-9 col-xs-12">
+							<div class="main-nav navbar-main-slide" style="padding-right: 20px;">
+								<!--
+                                <a href="#" class="btn_header_search main-nav__search no-decoration">
+									<span class="fa fa-search"></span>
+								</a>
+								-->
+
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+										<span class="sr-only"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+
+
+                                {% include menu.mainmenu.get_template %}
+
+
+								<form class="navbar-form navbar-right form-inline" id="searchform" action="{% url 'shop:list_search' %}" method="get" accept-charset="utf-8">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Поиск по каталогу" name="q">
+										<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav><!--top-nav-->
+
+
+
+        {% block carousel %}{% endblock carousel %}
+
+{% if slug == 'main' %}
+
+  {% block mainpage_content %}{% endblock mainpage_content %}
+
+ {% else %}
+
+<div style="background-color: {{ sitting.main_back_color | safe }}; " class="container">
+
+
+{% if slug != 'main' %}
+<script>
+	function goToUrl(url) {
+	    top.location.href = url;
+	}
+</script>
+
+
+{% if news_slider %}
+<section class="sliders">
+<ul class="sliders__main js-slider-main slider enable-bx-slider" data-auto="true" data-auto-hover="true" data-mode="fade" data-pager="false" data-pager-custom="null" data-prev-selector="null" data-next-selector="null" >
+	{% for news_obj in news_slider %}
+	<li onclick="goToUrl ('{% url 'news:detail' news_obj.id %}')" class="news_slider_li">
+		<img src="/media/{{ news_obj.file_news }}" class="img-responsive" alt="bxSlider" style="margin:0 auto;" />
+	</li>
+	{% endfor %}
+</ul>
+</section>
+{% endif %}
+
+	<!--
+<section class="news-slider">
+			<div class="container">
+				<h5 class="title title&#45;&#45;main wow slideInRight" data-wow-delay="0.7s" data-wow-duration="1.5s" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.7s; animation-name: slideInRight;">Новости<span class="line line&#45;&#45;title"><span class="line__first"></span><span class="line__second"></span></span></h5>
+				<div class="js-personal-slider enable-owl-carousel" data-auto-play="5000" data-stop-on-hover="true" data-items="2" data-pagination="false" data-navigation="true" data-items-desktop="4" data-items-desktop-small="3" data-items-tablet="2" data-items-tablet-small="2" >
+
+					{% for news_obj in news_slider %}
+        				{% thumbnail news_obj.file "100x100" crop="center" as im %}
+							<div class="slider-item wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+								<div class="worker triangle line-down triangle&#45;&#45;big" onclick="goToUrl ('{% url 'news:detail' news_obj.id %}')">
+									<div class="worker__photo">
+										<img src="{{ im.url }}" alt="{{ news_obj.title }}" class="img-responsive" />
+									</div>
+									<div class="worker__info">
+										<h2>{{ news_obj.published_date |date:"d.m.Y" }}</h2>
+										<p class="text">{{ news_obj.title }}</p>
+
+									</div>
+									<div class="woker-hidden">
+										<div class="woker-hidden__social">
+											<div class="worker__info">
+												<p class="text">{{ news_obj.small_text }}</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					{% endthumbnail %}
+				{% endfor %}
+
+				</div>
+			</div>
+		</section>
+
+-->
+{% endif %}
+
+
+ <section style="padding: 40px 40px 40px 40px;background-color: {{ sitting.main_back_color | safe }};">
+    <div class="container">
+				<div class="row">
+				<div class="breadcumb">
+
+                    {% block breadcrumb %}
+                    {% endblock breadcrumb %}
+
+
+				</div>
+    </div>
+    </div>
+    </section>
+
+
+  {% block content %}
+
+
+
+{% endblock content %}
+
+    <br><br><br><br><br><br><br><br>
+
+
+</div>
+
+{% endif %}
+
+
+
+
+
+
+        <!--sliders-->
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+		<section class="offers dark-bg">
+			<div class="container">
+				<h2 class="title title--main"><span class="title__bold">   Спецпредложения <span></span></span>CAIMAN<span class="line line--small"><span class="line__first"></span><span class="line__second"></span></span></h2>
+				<div id="carousel-small" class="owl-carousel enable-owl-carousel" data-auto-play="5000" data-stop-on-hover="true" data-items="2" data-pagination="true" data-navigation="false" data-items-desktop="2" data-items-desktop-small="2" data-items-tablet="1" data-items-tablet-small="1" >
+
+
+
+                     {% for of in offer  %}
+
+                         {% thumbnail of.item_variation_set.first.item_image_set.first.file "270x270" crop="center" as im %}
+
+                         <div class="item wow slideInDown" data-wow-delay="0.7s" data-wow-duration="1.5s">
+						<div class="offer">
+							<div class="row row--no-padding">
+								<div class="col-xs-6">
+									<div class="offer__img">
+										<img class="img-responsive" src="{{ im.url }}" alt="{{ of.title}}"/>
+									</div>
+								</div>
+								<div class="col-xs-6">
+									<div class="offer__info">
+										<h4 class="title"><span class="title__bold"><span>{{ of.offer_name1 }}</span></span> {{ of.offer_name2 }}</h4>
+										<div class="offer__price" style="margin-bottom: 10px;">{{ of.offer_text_price }}<span>{{ of.offer_text_cost }}</span></div>
+
+
+                                        <ul class="list" style="margin-bottom: 10px;">
+
+                                            {% if of.offer_text1 %}
+                                            <li><span class="list__circle"><span class="fa fa-check"></span></span>{{ of.offer_text1}}</li>
+                                                {% else %}
+                                                <br>
+										    {% endif %}
+                                            {% if of.offer_text2 %}
+                                            <li><span class="list__circle"><span class="fa fa-check"></span></span>{{ of.offer_text2}}</li>
+                                                {% else %}
+                                                <br>
+										    {% endif %}
+                                        </ul>
+
+
+
+
+										<a href="{% url "shop:product" of.category.first.slug of.slug %}" class="btn button button--main button--red pull-right">СМОТРЕТЬ</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                       {% endthumbnail %}
+
+                    {% endfor %}
+
+
+				</div>
+			</div>
+		</section><!--offers-->
+
+
+
+		<section class="link">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 col-xs-12">
+						<div class="row">
+							<div class="col-xs-4 wow zoomInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">
+								<div class="link__phone">
+									<div class="link__square triangle triangle--12">
+										<span class="fa fa-mobile"></span>
+									</div>
+									<h3>ТЕЛЕФОН</h3>
+									<p>{{ sitting.phone1 }}<br />{{ sitting.phone2 }}</p>
+								</div>
+							</div>
+							<div class="col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+								<div class="link__phone">
+									<div class="link__square triangle triangle--12">
+										<span class="fa fa-map-marker"></span>
+									</div>
+									<h3>АДРЕС</h3>
+									<p>{{ sitting.maindres | safe }}</p>
+								</div>
+							</div>
+							<div class="col-xs-4 wow zoomInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
+								<div class="link__phone">
+									<div class="link__square triangle triangle--12">
+										<span class="fa fa-envelope-o"></span>
+									</div>
+									<h3>EMAIL</h3>
+									<p>
+                                        <a href="mailto:{{ sitting.email1 }}">{{ sitting.email1 }}</a>
+                                        <br/>
+                                        <a href="mailto:{{ sitting.email2 }}">{{ sitting.email2 }}</a>
+                                    </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--link-->
+
+{% endcomment %}
+
+
+
+		<footer class='map-footer'>
+
+            {% if slug == 'kontakty' %}
+			<script src='https://www.google.com/recaptcha/api.js'></script>
+
+			<div class="footer-contacts">
+				<div class="container">
+					<div class="row">
+
+
+
+						<div class="col-xs-7 wow fadeInLeft hidden-xs hidden-sm" data-wow-delay="0.7s" data-wow-duration="1.5s">
+							<div class="map">
+								<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=or9aglLO5hlJr-tx4xQH6qo4YT8Y4OxG&amp;width=450&amp;height=380&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+							</div>
+						</div>
+
+						<div class="col-xs-5"  >
+
+							<form action="/page/sendmymail" method="post" class="quick-form">
+                                {% csrf_token %}
+								<h2 class="title"><span class="title__bold">Обратная</span>Связь</h2>
+								<!--
+                                <div class="quick-input">
+									<input type="text" name="name" placeholder="Имя" />
+									<div class="triangle-quick-input"></div>
+								</div>
+								-->
+                                <input type="hidden" name="name" value="Скрыто">
+								<div class="quick-input">
+									<input type="text" name="phone" placeholder="Телефон" />
+									<div class="triangle-quick-input"></div>
+								</div>
+								<div class="quick-input">
+									<textarea placeholder="Сообщение" name="message"></textarea>
+									<div class="triangle-quick-input"></div>
+								</div>
+								<div class="quick-input">
+									<div class="g-recaptcha" data-sitekey="6LcVNlcUAAAAAHkOineD4RZmvWpP6fyXcxSYOAH-"></div>
+								</div>
+								<button type="submit" class="btn button button--red button--main">Отправить</button>
+							</form>
+						</div>
+                        <div class="hidden-xs hidden-sm" style="background: url(/static/images/caimandoplogo.png) no-repeat;  opacity: 0.4;position: relative; left: 1200px; height: 320px; top: 30px;"></div>
+
+					</div>
+				</div>
+			</div>
+
+
+            {% endif %}
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-7">
+							<div class="copyright wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">
+								<p>&copy; Copyrights 2017 by <span></span> | <span>ООО "КАЙМАН" </span> Все права защищены.</p>
+							</div>
+						</div>
+						<div class="col-xs-5">
+							<div class="social social--footer pull-right clearfix wow fadeInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
+
+
+
+								<a href="{{ sitting.vk_link | safe }}" class="social__one square">
+									<span class="fa fa-vk"></span>
+								</a>
+								<a href="{{ sitting.fb_link | safe }}" class="social__one square">
+									<span class="fa fa-facebook"></span>
+								</a>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a id="to-top" href="#header-top"><i class="fa fa-chevron-up"></i></a>
+		</footer><!--map-footer-->
+		<!--Main-->   
+		<script src="/static/js/jquery-1.11.3.min.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+		<script src="/static/js/modernizr.custom.js"></script>
+		<!--Counter-->
+
+		<script src="/static/js/waypoints.min.js"></script>
+		<script src="/static/js/jquery.easypiechart.min.js"></script>
+		<script src="/static/js/classie.js"></script>
+		<!--Switcher-->
+		<script src="/static/assets/switcher/js/switcher.js"></script>
+		<!--Owl Carousel-->
+		<script src="/static/assets/owl-carousel/owl.carousel.min.js"></script>
+		<!--bxSlider-->
+		<script src="/static/assets/bxslider/jquery.bxslider.min.js"></script>
+		<!-- jQuery UI Slider -->
+		<script src="/static/assets/slider/jquery.ui-slider.js"></script>
+		<!--Isotope-->
+		<script src="/static/assets/isotope/isotope.js"></script>
+		<!--Slider-->
+		<script src="/static/assets/slider/jquery.ui-slider.js"></script>
+		<!--Fancybox-->
+		<script src="/static/assets/fancybox/jquery.fancybox.pack.js"></script>
+		<!--Theme-->
+		<script src="/static/js/jquery.smooth-scroll.js"></script>
+		<script src="/static/js/wow.min.js"></script>
+		<script src="/static/js/jquery.placeholder.min.js"></script>
+		<script src="/static/js/theme.js"></script>
+        <script src="/static/js/ekko-lightbox.min.js"></script>
+        <script src="/static/js/jqery.coock.js"></script>
+
+    <script>
+
+function roundToNumber(roundedNumber, roundTo) {
+    amount = roundTo * Math.ceil(roundedNumber / roundTo);
+    return amount;
+}
+
+$('.btn-number').click(function(e){
+    e.preventDefault();
+
+    fieldName = $(this).attr('data-field');
+    type      = $(this).attr('data-type');
+    step      = Number.parseInt ($(this).attr('data-step'));
+    var input = $("input[name='"+fieldName+"']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+        if(type == 'minus') {
+
+            if(currentVal > input.attr('min')) {
+                input.val(currentVal - step).change();
+            }
+            if(parseInt(input.val()) == input.attr('min')) {
+                $(this).attr('disabled', true);
+            }
+
+        } else if(type == 'plus') {
+
+            if(currentVal < input.attr('max')) {
+                input.val(currentVal + step).change();
+            }
+            if(parseInt(input.val()) == input.attr('max')) {
+                $(this).attr('disabled', true);
+            }
+
+        }
+    } else {
+        input.val(0);
+    }
+});
+$('.input-number').on("click", function () {
+   $(this).select();
+});
+$('.input-number').focusin(function(){
+   $(this).data('oldValue', $(this).val());
+});
+$('.input-number').change(function() {
+
+    minValue =  parseInt($(this).attr('min'));
+    maxValue =  parseInt($(this).attr('max'));
+    valueCurrent = parseInt($(this).val());
+    $(this).val(roundToNumber(valueCurrent, parseInt($(this).attr('data-step'))));
+
+    name = $(this).attr('name');
+    if(valueCurrent >= minValue) {
+        $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Введенное значение слишком большое');
+        $(this).val($(this).data('oldValue'));
+    }
+    if(valueCurrent <= maxValue) {
+        $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Введенное значение слишком большое');
+        $(this).val($(this).data('oldValue'));
+    }
+});
+$(".input-number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+
+
+
+        var true_out=0;
+
+
+        function left_coock(left_id)
+        {
+
+           $.removeCookie("t"+left_id);
+        }
+
+
+
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+        $(document).ready(function() {
+
+
+
+    $(".cart-quantity").change(function(){
+
+        this_id=$(this).parent().parent().prev().prev().children(".item-variation-select-cat").val();
+
+            $.cookie("t"+this_id,$(this).val());
+
+    });
+
+
+            $('#dost_need_check').change(function()
+
+                    {
+                        if($('#dost_need_check').is(':checked') ) $('#dost_need').show();
+                        else $('#dost_need').hide();
+                    }
+
+            );
+
+
+             $('.img_product_mini').mouseenter(function() {
+
+              $(this).clone().addClass('img_hover').addClass("newElement").prependTo($(this).parent());
+            });
+
+             $('.img_product_mini').mouseleave(function() {
+
+                 $(".newElement").remove();
+
+            });
+
+
+
+
+
+
+
+
+
+
+            $('.thumbnail_container img').click(function () {
+                $('#item_big_img').html('');
+                $('#item_big_img').append('<a href="'+$(this).attr('data-xlurl')+'" data-toggle="lightbox" data-gallery="item-gallery"><img src="'+$(this).attr('data-url')+'">');
+            });
+            if ($('.thumbnail_container img').length) $('.thumbnail_container img')[0].click();
+            
+            $('#item-variation-select').change(function () {
+                $('.item-desc').hide();
+                $('#item-desc-'+$(this).val()).show();
+
+
+            });
+
+            $('.item-variation-select-cat').change(function () {
+
+                $(this).parent().next().children('span').hide();
+
+                $(this).parent().next().children('.item-desc-'+$(this).val()).show();
+                $(this).parent().next().children('.item-stock-'+$(this).val()).show();
+
+
+
+                if(($(this).parent().next().children('#stock-'+$(this).val()).val()==0)||($(this).parent().next().children('#stock-'+$(this).val()).val()==2))
+                {
+                    $(this).parent().next().next().next().children().hide();
+                    $(this).parent().next().next().children().hide();
+
+                }
+                else
+
+                {
+                    $(this).parent().next().next().next().children().show();
+                    $(this).parent().next().next().children().show();
+                }
+
+
+
+
+
+            });
+
+        });
+    </script>
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter47303502 = new Ya.Metrika({
+                    id:47303502,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/47303502" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+	</body>
+</html>

@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load cms_tags %}
+
+{% block breadcrumb %}
+    <a href="/">Главная</a><span class="breadcumb__del no-decoration">»</span>
+    <a href="{% url 'shop:list_all'  %}"> Каталог </a><span class="breadcumb__del no-decoration">»</span>
+    Корзина
+
+{% endblock %}
+
+{% block title %}Корзина{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <div align="center" style="margin: 20px 0px 20px 0px"><h1>Ваша корзина товаров</h1></div>
+
+    {% if cart.item_count > 0 %}
+
+    <h4>Товары в наличии</h4>
+
+  <table class="cart" width="100%" cellpadding="15" cellspacing="15">
+    <thead>
+      <tr>
+        <th>Изображение</th>
+        <th>Продукт</th>
+        <th>Количество</th>
+        <th>Цена</th>
+        <th>Стоимость</th>
+        <th>Удалить</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart.list_items  %}
+        {% with product=item.obj %}
+
+                  {% if product.stock == 1 %}
+
+          <tr>
+            <td>
+
+                <div class="thumbnail_container">
+
+                {% if product.item_image_set.first.file %}
+                    {% thumbnail product.item_image_set.first.file "50x50" crop="center" as im %}
+                        <img src="{{ im.url }}" class="img-responsive img-thumbnail">
+                    {% endthumbnail %}
+                {% else %}
+                      <img src="/static/images/nofoto.jpg" class="img-responsive" width="50"  alt="{{ item_obj.title }}">
+
+               {% endif %}
+                </div>
+
+            </td>
+              <td><a href="{% url "shop:product" product.item.category.first.slug product.item.slug %}">{{ product.item.title }} ({{ product.title }})</a></td>
+            <td>
+                <div class="input-group" style="width: 120px;">
+                  <input type="number" class="form-control cart-quantity input-number" data-step="{{ product.item.min_lot }}" value="{{ item.quantity }}" min="0" max="999">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="cart.changeQuantity('{{ product.pk }}', $(this).parent().prev('.cart-quantity').val())" title="Изменить количество">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    </button>
+                  </span>
+                </div>
+            </td>
+            <td class="num">
+
+
+            {% if user and not user.is_anonymous  %}    {{ product.price_2 }}
+
+                {% else %}
+                {{ product.price_1 }}
+            {% endif %}
+
+                руб.</td>
+
+          {% if user and not user.is_anonymous  %}
+            <td class="num">{% mult product.price_2 item.quantity %} руб.</td>
+          {% else %}
+          <td class="num">{% mult product.price_1 item.quantity %} руб.</td>
+          {% endif %}
+            <td>
+                <button onclick="cart.remove('{{ product.pk }}')">Удалить</button>
+            </td>
+          </tr>
+      {% endif %}
+        {% endwith %}
+      {% endfor %}
+
+
+
+<tr>
+<td>
+<h4>Товары в ожидании</h4>
+</td>
+</tr>
+
+
+
+      {% for item in cart.list_items  %}
+        {% with product=item.obj %}
+
+      {% if product.stock == 2 %}
+
+          <tr>
+            <td>
+
+                <div class="thumbnail_container">
+
+                {% if product.item_image_set.first.file %}
+                    {% thumbnail product.item_image_set.first.file "50x50" crop="center" as im %}
+                        <img src="{{ im.url }}" class="img-responsive img-thumbnail">
+                    {% endthumbnail %}
+                {% else %}
+                      <img src="/static/images/nofoto.jpg" class="img-responsive" width="50"  alt="{{ item_obj.title }}">
+
+               {% endif %}
+                </div>
+
+            </td>
+              <td><a href="{% url "shop:product" product.item.category.first.slug product.item.slug %}">{{ product.item.title }} ({{ product.title }})</a></td>
+            <td>
+                <div class="input-group" style="width: 120px;">
+                  <input type="number" class="form-control cart-quantity input-number" data-step="{{ product.item.min_lot }}" value="{{ item.quantity }}" min="0" max="999">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="cart.changeQuantity('{{ product.pk }}', $(this).parent().prev('.cart-quantity').val())" title="Изменить количество">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    </button>
+                  </span>
+                </div>
+            </td>
+            <td class="num">
+
+
+            {% if user and not user.is_anonymous  %}    {{ product.price_2 }}
+
+                {% else %}
+                {{ product.price_1 }}
+            {% endif %}
+
+                руб.</td>
+
+          {% if user and not user.is_anonymous  %}
+            <td class="num">{% mult product.price_2 item.quantity %} руб.</td>
+          {% else %}
+          <td class="num">{% mult product.price_1 item.quantity %} руб.</td>
+          {% endif %}
+            <td>
+                <button onclick="cart.remove('{{ product.pk }}')">Удалить</button>
+            </td>
+          </tr>
+
+      {% endif %}
+
+        {% endwith %}
+      {% endfor %}
+    </tbody>
+    </table>
+
+<div class="row" style="margin: 20px 0px 20px 0px">
+
+
+<div class="col-md-12 col-md-offset-9">
+      <h4><b>Итого</b> : {{ real_count_cart }} руб.</h4>
+
+
+</div>
+</div>
+
+
+<div class="row">
+
+
+<div class="col-md-6 col-md-offset-5"><h4>Данные заказа</h4>
+     {% if user and not user.is_anonymous  %}
+
+            <form action="{% url "shop:order-success-post"%}"  method="post">
+       {% csrf_token %}
+<hr>
+    <b>Имя:</b>     {{ userprofile.name }}<br>
+    <b>Компания:</b> {{ userprofile.company_name }}<br>
+
+     <b>Необходима доставка:</b> <input type="checkbox" id="dost_need_check" name="dost_need">
+
+    <div id="dost_need" style="display: none;"><br><b>Адрес доставки:</b>
+
+    <input type="text" size="40" class="form-control" name="dost_adres" value="{{ userprofile.adres }}"><br></div>
+
+
+    <input type="hidden" name="user_name" value="{{ user }}">
+
+    <input type="hidden" name="your_name" value="{{ userprofile.name }}">
+    <input type="hidden" name="phone" value="{{ userprofile.phone }}">
+    <input type="hidden" name="company_name" value="{{ userprofile.company_name }}">
+    <input type="hidden" name="email" value="{{ user.email }}">
+    <input type="hidden" name="inn" value="{{ userprofile.inn }}">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% else %}
+
+
+
+   <form action="{% url "shop:order-success-post"%}"  method="post">
+       {% csrf_token %}
+       <table class="table">
+   {{ form.as_table }}
+     <div id="dost_need" style="display: none;"><br><b>Адрес доставки:</b>
+    <input type="text" size="40" class="form-control" name="dost_adres" value="{{ userprofile.adres }}"><br></div>
+           </table>
+
+
+
+    {% endif %}
+
+  <p class="text-right">
+    <a href="{% url "shop:list_all"%}" class="btn">Вернуться в магазин</a>
+
+
+    <input type="submit" class="button button--grey button--main btn" style="width: 125px;" value="Оформить заказ">
+  </p>
+        {% else %}
+            <h2 align="center">Ваша корзина пуста</h2>
+            <a href="{% url "shop:list_all"%}" class="btn">Вернуться в магазин</a>
+        {% endif %}
+
+    </form>
+
+</div>
+</div>
+</div>
+    </div>
+{% endblock %}

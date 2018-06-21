@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block breadcrumb %}
+
+
+           <a href="/" class="breadcumb__page no-decoration">Главная</a>
+					<span class="breadcumb__del no-decoration">»</span>
+                    <a href="{% url 'shop:list_all' %}"> Каталог </a>
+                    <span class="breadcumb__del no-decoration">»</span>
+                    {% for parent in current_category.get_ancestors %}
+                        <a href="{% url 'shop:detail' parent.slug %}">{{ parent.title }}</a>
+                    <span class="breadcumb__del no-decoration">»</span>
+                    {% endfor %}
+                     <a href="{% url 'shop:detail' current_category.slug %}"> {{ current_category.title }} </a>
+                    <span class="breadcumb__del no-decoration">»</span>
+                     {{ current_product.title }}
+
+{% endblock %}
+
+
+
+
+
+{% block title %}{{ current_product.title }} - {{ current_category.title }} - Каталог продукции - CAIMAN {% endblock title %}
+
+{% block content %}
+
+      <style>
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+    input[type='number'] {
+    -moz-appearance: textfield;
+    }
+
+    </style>
+
+    <div class="container" style="padding-right: 40px;">
+    <h1>{{ current_product.title}}</h1>
+
+
+    {% comment %}
+    <div id="cart_block" style="background-color: #9f9f9f">
+        <h3>Корзина</h3>
+        {% for item in cart.list_items %}
+        <div>
+            {# Access the item's model instance using its "obj" attribute #}
+            {{ item.obj.name }}
+            <img src="{{ item.obj.picture.url }}">
+            {{ item.price }}
+            {{ item.quantity }}
+            {{ item.total }}
+        </div>
+        {% endfor %}
+
+        Товаров {{ cart.item_count }}<br>
+        На сумму {{ cart.total_price }} рублей
+        <br>
+        <a href="{% url "shop:cart_list" %}">Оформить заказ</a>
+    </div>
+
+    {% endcomment %}
+
+
+
+
+
+
+     <div class="row">
+        <div class="col-md-5 ">
+            <div class="row">
+                <div class="col-md-10" id="item_big_img">
+                    {% if not item_variation.variation_obj.item_image_set.first %}
+                        <img  src="/static/images/nofoto.jpg" width="400">
+                    {% endif %}
+                </div>
+                <div class="col-md-2 ">
+                    {#вывод миниатюр#}
+                    {% for variation_obj in item_variation %}
+
+                        {% for variation_image_obj in variation_obj.item_image_set.all %}
+                            <div class="thumbnail_container">
+                                {% thumbnail variation_image_obj.file "50x50" crop="center" as im %}
+                                {% thumbnail variation_image_obj.file "400x400" crop="center" as big_im %}
+                                {% thumbnail variation_image_obj.file "1000x1000" crop="center" as xl_im %}
+                                    <img style="cursor:pointer" src="{{ im.url }}" {% if not forloop.first %} data-gallery="item-gallery"{% endif %} data-remote="{{ xl_im.url }}" data-url="{{ big_im.url }}" data-xlurl="{{ xl_im.url }}" class="img-responsive img-thumbnail" alt="{{ variation_image_obj.title }}" title="{{ variation_image_obj.title }}" id="img-{{ variation_obj.pk }}-{{ forloop.counter }}">
+                                {% endthumbnail %}
+                                {% endthumbnail %}
+                                {% endthumbnail %}
+                            </div>
+                        {% endfor %}
+
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+        {% if item_variation.count > 1 %}
+        <div class="col-md-7">
+
+
+
+        <div class="input-group">
+            Модификации товара:
+
+
+            <select class="form-control" id="item-variation-select">
+                <option selected="selected">Выберите модификацию    </option>
+                {% for variation_obj in item_variation %}
+                    <option value="{{ variation_obj.pk }}">{{ variation_obj.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+            {% for variation_obj in item_variation %}
+                <div class="collapse item-desc" id="item-desc-{{ variation_obj.pk }}">
+                    <div class="item-desc-text">
+Наличие:
+                          {% if variation_obj.stock == 1 %}
+         <font color="green">    На складе </font>
+             {% elif variation_obj.stock == 2 %}
+             <font color="blue"> Ожидается  - {{ variation_obj.stock_text }} </font>
+             {% elif variation_obj.stock == 0 %}
+             <font color="red"> Нет в наличии </font>
+          {% endif %}
+
+                        {% if user and not user.is_anonymous  %}  <div><b>Оптовая цена1:</b> {{ variation_obj.price_2 }}</div>{% else %}  <div><b>РРЦ:</b> {{ variation_obj.price_1 }}  <b>&nbsp; &#8381;</b> </div> {% endif %}
+
+
+
+                    </div>
+                    <input type="number" class="cart-quantity" value="1">
+
+
+
+
+{% if user and not user.is_anonymous %}
+                    <button class="button button--grey button--main btn button--active" onclick="cart.add('{{ variation_obj.pk }}', $(this).prev('.cart-quantity').val())">В корзину</button>
+{% else %}
+                            <a  title="Авторизуйтесь что бы сделатоь заказ." data-content="Авторизуйтесь что бы сделатоь заказ." href="/register/" class="btn btn-danger btn-xs">Авторизация </a>
+                            {% endif %}
+{% comment %}
+                <div>Цена 2: {{ variation_obj.price_2 }}</div>
+                <div>Цена 3: {{ variation_obj.price_3 }}</div>
+{% endcomment %}
+
+
+                </div>
+            {% endfor %}
+
+            <br><br><br>
+                {{ current_product.content|safe }}
+
+
+    {% else %}
+
+         <div class="col-md-7">
+
+
+
+                <div  id="item-desc-{{ item_variation.first.pk }}">
+                    <div class="item-desc-text">
+
+                                 {% if item_variation.first.stock == 1 %}
+     Наличие:    <font color="green">    На складе </font>
+             {% elif item_variation.first.stock == 2 %}
+             <font color="blue"> Ожидается  - {{ variation_obj.stock_text }} </font>
+             {% elif item_variation.first.stock == 0 %}
+             <font color="red"> Нет в наличии </font>
+          {% endif %}
+                     {% if user and not user.is_anonymous  %}  <div><b>РРЦ:</b> {{ item_variation.first.price_1 }} <br><b>Оптовая цена:</b> {{ item_variation.first.price_2 }}</div>{% else %}  <div><b>РРЦ:</b> {{ item_variation.first.price_1 }}  <b>&nbsp; &#8381;</b>  <br> <b>Оптовая цена:</b> <a  title="Вниманию оптовикам !!! Что бы получить оптовую цену, необходимо зарегистрироваться." data-content="Что бы получить оптовую цену, необходимо зарегистрироваться, как партнер." href="/register/" class="btn btn-danger">
+                                            Авторизация </a></div> {% endif %}
+
+                    </div>
+
+
+                {% if item_variation.first.stock == 1 %}
+<div class="row">
+
+                   <b>Количество:</b>    <div class="input-group col-md-2" style="{% if item_variation.first.stock != 1  %} display: none; {% endif %}">
+
+
+    <span class="input-group-btn">
+              <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="v{{ variation_obj.pk }}" data-step="{{ current_product.min_lot }}">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+    </span>
+
+
+          <input type="number" style="min-width: 50px;" name="v{{ variation_obj.pk }}" class="cart-quantity form-control input-number" data-step="{{ current_product.min_lot }}" value="0" min="0" max="999">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="v{{ variation_obj.pk }}" data-step="{{ current_product.min_lot }}">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+      </div>
+<br>
+<div class="col-md-2">
+
+        {% if user and not user.is_anonymous %}
+
+              <button  class="button button--grey button--main btn button--active" onclick="cart.add('{{ item_variation.first.pk }}', $(this).parent().prev().prev().children('.cart-quantity').val())">В корзину</button>
+     {% else %}
+                            <a  title="Авторизуйтесь что бы сделать заказ." data-content="Авторизуйтесь что бы сделать заказ." href="/register/" class="btn btn-danger btn-xs">Авторизация </a>
+                            {% endif %}
+</div>
+
+
+
+</div>
+                {% endif %}
+{% comment %}
+                <div>Цена 2: {{ variation_obj.price_2 }}</div>
+                <div>Цена 3: {{ variation_obj.price_3 }}</div>
+{% endcomment %}
+                <br><br><br>
+                {{ current_product.content|safe }}
+
+                </div>
+
+
+
+    {% endif %}
+
+
+    </div>
+
+    </div>
+    <hr>
+
+
+
+    </div>
+
+{% endblock content %}

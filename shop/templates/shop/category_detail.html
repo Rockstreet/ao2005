@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+{% load mptt_tags %}
+{% load thumbnail %}
+
+{% load cms_tags %}
+
+
+{% block breadcrumb %}
+
+
+        <a href="/" class="breadcumb__page no-decoration">Главная</a>
+                    <span class="breadcumb__del no-decoration">»</span>
+                    {% for parent in category.get_ancestors %}
+                        <a href="{% url 'shop:detail' parent.slug %}">{{ parent.title }}</a>
+                    <span class="breadcumb__del no-decoration">»</span>
+                    {% endfor %}
+
+     {{ category.title }}
+
+
+<br>
+{% endblock %}
+
+
+{% block title %}{{ category.title }} - Каталог продукции - CAIMAN {% endblock title %}
+
+
+
+{% block content %}
+    <script language="JavaScript">
+
+
+        window.onload = function () {
+            window.onbeforeunload = function () {
+                var cols = 0;
+                $(".cart-quantity").each(function () {
+                    if (cols == 0) cols = $(this).val();
+                });
+                if ((cols != 0) && (true_out == 0)) return "Вы действительно хотите покинуть страницу ?";
+            };
+        }
+
+        function all_to_cart() {
+            true_out = 1;
+            var post_url = "{% url 'cart-add' %}";
+            var csrfmiddlewaretoken = "{{ csrf_token }}";
+
+            $(".cart-quantity").each(function () {
+
+                left_coock($(this).parent().parent().prev().prev().children(".item-variation-select-cat").val());
+                //$.post( post_url, { csrfmiddlewaretoken: csrfmiddlewaretoken, pk: $(this).parent().prev().prev().children(".item-variation-select-cat").val(), quantity: $(this).val() });
+
+                $.ajax({
+                    type: 'POST',
+                    url: post_url,
+                    data: {
+                        csrfmiddlewaretoken: csrfmiddlewaretoken,
+                        pk: $(this).parent().parent().prev().prev().children(".item-variation-select-cat").val(),
+                        quantity: $(this).val()
+                    },
+                    async: false
+                });
+
+            });
+
+        location.reload();
+    }
+
+    </script>
+
+<style>
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type='number'] {
+        -moz-appearance: textfield;
+    }
+
+</style>
+
+
+     <div class="container">
+
+        <div class="row" style="padding-right: 25px;">
+            <div class="col-lg-3 visible-lg-block" >
+
+
+                    {% recursetree nodes %}
+
+                        <div {% if node.is_root_node %}class="root_catalog"{% else %}class="leaf_catalog"{% endif %}>
+                            <a href="{% url 'shop:detail' node.slug %}"  {% if node.is_root_node %}class="root_catalog_link"{% endif %} {% ifequal node.pk current_category.pk %}style="font-weight:bold;"{% else %}style="padding-bottom:10px;"{% endifequal %}>
+                            {{ node.title }}
+                            </a>
+                            {% if node.is_root_node %}
+                                {% ifequal node.pk current_category_root.pk %}
+                                    {% if not node.is_leaf_node %}
+                                        <div class="catalog_children_div">
+                                            {{ children }}
+                                        </div>
+                                    {% endif %}
+                                {% endifequal %}
+                            {% else %}
+                                {% if not node.is_leaf_node %}
+                                    {% if current_category.pk == node.pk %}
+                                        <div class="catalog_children_div">
+                                            {{ children }}
+                                        </div>
+                                    {% elif node.level < current_category.level and current_category in node.get_descendants %}
+                                        <div class="catalog_children_div">
+                                            {{ children }}
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    {% endrecursetree %}
+
+                {% for banner in banners %}
+				<div style="padding-top: 20px; text-align: center;">
+
+					{% if banner.banner_file %}
+					<a href="{{ banner.banner_file.url }}" class="root_catalog_link" title="{{ banner.banner_name }}">
+					{% else %}
+					<a href="{{ banner.banner_link }}" class="root_catalog_link" title="{{ banner.banner_name }}">
+					{% endif %}
+
+						<img src="{{ banner.banner_image.url }}" width="270" height="120">
+
+					</a>
+					</div>
+         		{% endfor %}
+
+            </div>
+            <div class="col-md-12 col-lg-9">
+
+                <header class="tab-header clearfix" style="visibility: visible;">
+                    <h4 class="title title--main pull-left">{{ category.title}}<span class="line line--small"></h4>
+                    <div class="tab-toggles pull-right js-isotope-btns"></div>
+                </header>
+
+                 <div class="row">
+                     <div class="col-md-12">
+                         {{ category.content | safe}}
+                         <br>
+                     </div>
+                 </div>
+
+                <div class="row">
+                    {% for category_obj in object_list %}
+                    {% thumbnail category_obj.file "200x200" crop="center" as im %}
+                    <div class="col-md-3 col-xs-6" style="">
+
+
+                        <a href="{% url 'shop:detail' category_obj.slug %}" class="">
+                            <div class="bodered_div">
+                                <img src="{{ im.url }}" class="img-responsive" alt="{{ item_obj.title }}" style="max-width:100%;">
+                            </div>
+
+                            <div class="category_name">
+                                        <span>{{ category_obj.title }}</span>
+                                    </div>
+
+
+
+                        </a>
+                    </div>
+                    {% endthumbnail %}
+                    {% endfor %}
+        <div class="col-md-12 col-xs-6"  style="">
+            {% if item_list.count > 0 %}
+
+            <table class="table">
+
+                {% for category_obj in item_list %}
+                    <tr>
+                        <td class="text-left" width="150">
+
+                            {% if category_obj.item_image_set.first.file %}
+                                {% thumbnail category_obj.item_image_set.first.file "400x400" crop="center" as im %}
+                                {% thumbnail category_obj.item_image_set.first.file "1000x1000" crop="center" as exl %}
+                                    <a href="{{ exl.url }}" data-toggle="lightbox">
+                                        <img src="{{ im.url }}" width="150"  class="img-responsive img_product_mini" alt="{{ item_obj.title }}">
+                                    </a>
+                                {% endthumbnail %}
+                                {% endthumbnail %}
+                            {% else %}
+                                <img src="/static/images/nofoto.jpg" class="img-responsive" width="150" alt="{{ item_obj.title }}">
+                            {% endif %}
+
+
+
+                        </td>
+                        <td width="50%">
+                                <a href="{% url 'shop:product' category.slug category_obj.slug %}"> <b style="font-size: 16px;">{{ category_obj.title }}</b> </a> <br> {{ category_obj.item_variation_set.first.title }}
+
+                           <br>
+                            <input type="hidden" class="item-variation-select-cat" value="{{ category_obj.item_variation_set.first.pk }}">
+                            {{ category_obj.content_small }}
+                            {% if user.username == 'admin' or user.username == 'tarc'  %} <br><a href="/admin/shop/item/{{ category_obj.pk }}/change/">Редактировать в системе управления {{  user.is_admin }}</a> {% endif %}
+                        </td>
+
+
+
+
+
+                        <td width="20%">
+
+
+
+                            <div class="price">{{ category_obj.price_1 }} &#8381;</div>
+
+
+
+
+
+                        </td>
+
+
+
+                        <td width="10%" align="center">
+
+                            <div class="input-group" style="{% if category_obj.item_variation_set.first.stock == 0  %} display: none; {% endif %}">
+                        <div class="input-group-prepend">
+                                  <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="v{{ category_obj.pk  }}" data-step="{{ category_obj.min_lot }}">
+                                    <span class="glyphicon glyphicon-minus">-</span>
+                                  </button>
+                        </div>
+                              <input type="number" style="min-width: 50px;" id="qlt{{ category_obj.pk  }}" name="v{{ category_obj.pk  }}" class="cart-quantity form-control input-number" value="{% cookie category_obj.item_variation_set.first.pk  %}"  data-step="{{ category_obj.min_lot }}" min="0" max="999">
+
+                                <div class="input-group-append">
+                                  <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="v{{ category_obj.pk  }}" data-step="{{ category_obj.min_lot }}">
+                                      <span class="glyphicon glyphicon-plus">+</span>
+                                  </button>
+                                </div>
+                          </div>
+                            <br><br>
+
+                            {% if user and not user.is_anonymous %}
+                            <button class="btn btn-success btn" onclick="cart.add({{category_obj.pk}}, $('#qlt{{category_obj.pk}}').val()); true_out=1; left_coock({{category_obj.pk}});">В КОРЗИНУ</button>
+                            {% else %}
+                            <a  title="Авторизуйтесь что бы сделатоь заказ." data-content="Авторизуйтесь что бы сделать заказ." href="/register/" class="btn btn-danger btn-xs">Авторизация </a>
+                            {% endif %}
+
+
+
+
+
+                            {% for item in cart.list_items  %}
+                                {% if  item.obj.pk == category_obj.item_variation_set.first.pk  %}
+                                <small><br><span style="color: red;"><span class="fa fa-shopping-cart"></span> в корзине - <b>{{item.quantity}}</b> </span></small>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+
+                    </tr>
+
+
+                    {% comment %}
+                    // Товары категории
+                    <div class="col-md-3 col-xs-6 isotope-item wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s" style="position: absolute; left: 0px; top: 0px; visibility: visible; animation-duration: 1.5s; animation-delay: 0.7s; animation-name: fadeInLeft;">
+                        <a href="{% url 'shop:product' category.slug category_obj.slug %}" class="listing-anons equal-height-item listing-anons--home triangle triangle--big line-down no-decoration" style="height: 315px;">
+                            <div class="listing-anons__img">
+                                <img src="{{ im.url }}" class="img-responsive" alt="{{ item_obj.title }}">
+                            </div>
+                            <div class="listing-anons__title">
+                                <h4 class="name">{{ category_obj.title }}</h4>
+                            </div>
+                            <div class="listing-anons__hidden">
+                                <h3>{{ category_obj.title }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                    {% endcomment %}
+
+
+                {% endfor %}
+
+
+        </table>
+
+        {% endif %}
+
+        </div>
+                </div>
+            </div>
+         </div>
+     </div>
+<br>
+
+{% endblock content %}
+
+{% comment %}
+{% block content %}
+<div class="container">
+    <h1>{{ category.title}}</h1>
+
+    {{ category.content|safe }}
+
+    {% for category_obj in object_list %}
+        <a href="{% url 'shop:detail' category_obj.slug %}">{{ category_obj.title }}</a><br>
+    {% endfor %}
+
+    {% for item_obj in item_list %}
+        <a href="{% url 'shop:product' category.slug item_obj.slug %}">{{ item_obj.title }}</a><br>
+    {% endfor %}
+</div>
+{% endblock content %}
+{% endcomment %}

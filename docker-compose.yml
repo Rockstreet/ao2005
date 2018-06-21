@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+    container_name: ao2005_db_1
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/pgdata
+  web:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    container_name: ao2005
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  caimanadminer:
+     image: adminer
+     ports:
+           - 8880:8080

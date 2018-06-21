@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.title }}{% endblock title %}
+{% block keywords %}{{ object.meta_keywords }}{% endblock keywords %}
+{% block description %}{{ object.meta_description }}{% endblock description %}
+
+
+
+
+{% block breadcrumb %}
+
+    <a href="/" class="breadcumb__page no-decoration">Главная</a>
+					<span class="breadcumb__del no-decoration">»</span>
+					<a href="{{ object.url}}" class="breadcumb__page no-decoration">{{ object.title}}</a>
+
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+
+	{{ object.content|safe }}
+
+
+
+{% block action %}
+
+    {% include "action.html" %}
+
+{% endblock action %}
+
+
+{% endblock content %}
+
+
+
+{% block mainpage_content %}
+
+        {% include "mainpage_content.html" %}
+
+{% endblock mainpage_content %}
+
+
+
+
+
+
+
+
