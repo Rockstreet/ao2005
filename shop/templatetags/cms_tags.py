@@ -12,7 +12,7 @@ def cookie(context, cookie_name): # could feed in additional argument to use as 
     request = context['request']
     result = request.COOKIES.get('t'+str(cookie_name),'') # I use blank as default value
     if result=='':
-        result='0'
+        result='1'
     return result
 
 

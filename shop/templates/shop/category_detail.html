@@ -22,51 +22,12 @@
 {% endblock %}
 
 
-{% block title %}{{ category.title }} - Каталог продукции - CAIMAN {% endblock title %}
+{% block title %}{{ category.title }} - Магазин - Активный отдых {% endblock title %}
 
 
 
 {% block content %}
-    <script language="JavaScript">
 
-
-        window.onload = function () {
-            window.onbeforeunload = function () {
-                var cols = 0;
-                $(".cart-quantity").each(function () {
-                    if (cols == 0) cols = $(this).val();
-                });
-                if ((cols != 0) && (true_out == 0)) return "Вы действительно хотите покинуть страницу ?";
-            };
-        }
-
-        function all_to_cart() {
-            true_out = 1;
-            var post_url = "{% url 'cart-add' %}";
-            var csrfmiddlewaretoken = "{{ csrf_token }}";
-
-            $(".cart-quantity").each(function () {
-
-                left_coock($(this).parent().parent().prev().prev().children(".item-variation-select-cat").val());
-                //$.post( post_url, { csrfmiddlewaretoken: csrfmiddlewaretoken, pk: $(this).parent().prev().prev().children(".item-variation-select-cat").val(), quantity: $(this).val() });
-
-                $.ajax({
-                    type: 'POST',
-                    url: post_url,
-                    data: {
-                        csrfmiddlewaretoken: csrfmiddlewaretoken,
-                        pk: $(this).parent().parent().prev().prev().children(".item-variation-select-cat").val(),
-                        quantity: $(this).val()
-                    },
-                    async: false
-                });
-
-            });
-
-        location.reload();
-    }
-
-    </script>
 
 <style>
 
@@ -120,29 +81,20 @@
                         </div>
                     {% endrecursetree %}
 
-                {% for banner in banners %}
-				<div style="padding-top: 20px; text-align: center;">
-
-					{% if banner.banner_file %}
-					<a href="{{ banner.banner_file.url }}" class="root_catalog_link" title="{{ banner.banner_name }}">
-					{% else %}
-					<a href="{{ banner.banner_link }}" class="root_catalog_link" title="{{ banner.banner_name }}">
-					{% endif %}
-
-						<img src="{{ banner.banner_image.url }}" width="270" height="120">
-
-					</a>
-					</div>
-         		{% endfor %}
 
             </div>
             <div class="col-md-12 col-lg-9">
 
                 <header class="tab-header clearfix" style="visibility: visible;">
-                    <h4 class="title title--main pull-left">{{ category.title}}<span class="line line--small"></h4>
-                    <div class="tab-toggles pull-right js-isotope-btns"></div>
-                </header>
+                    <h4 class="title title--main pull-left">{{ category.title}}</h4>
+                </header><br>
 
+                <a {% if not this_brand %} id="this_brand" {% endif %} href="{% url 'shop:detail' category.slug %}">Все</a>
+
+
+                {% for brands in brand_unic %}
+                <a {% ifequal this_brand  brands.pk %} id="this_brand" {% endifequal %}  href="{% url 'shop:detail_filter' category.slug brands.pk %}">{{ brands }}</a>
+                {% endfor %}
                  <div class="row">
                      <div class="col-md-12">
                          {{ category.content | safe}}
@@ -209,15 +161,7 @@
 
 
                         <td width="20%">
-
-
-
                             <div class="price">{{ category_obj.price_1 }} &#8381;</div>
-
-
-
-
-
                         </td>
 
 
@@ -240,11 +184,10 @@
                           </div>
                             <br><br>
 
-                            {% if user and not user.is_anonymous %}
+
                             <button class="btn btn-success btn" onclick="cart.add({{category_obj.pk}}, $('#qlt{{category_obj.pk}}').val()); true_out=1; left_coock({{category_obj.pk}});">В КОРЗИНУ</button>
-                            {% else %}
-                            <a  title="Авторизуйтесь что бы сделатоь заказ." data-content="Авторизуйтесь что бы сделать заказ." href="/register/" class="btn btn-danger btn-xs">Авторизация </a>
-                            {% endif %}
+
+
 
 
 

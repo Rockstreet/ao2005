@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_mptt_admin.admin import DjangoMpttAdmin
-from .models import Item, Item_image, Category, Order, Status
+from .models import Item, Item_image, Category, Order, Status, Brands
 import nested_admin
 
 
@@ -28,13 +28,12 @@ class Item_imageInline(nested_admin.NestedTabularInline):
 
 
 class ItemAdmin(nested_admin.NestedModelAdmin):
-    #inlines = [Item_variationInline,]
+    inlines = [Item_imageInline,]
     prepopulated_fields = {"slug": ("title",)}
     filter_horizontal = ('category',)
     # list_display = ('title', 'published_date', 'start_date', 'end_date', 'main_page')
-    # list_editable = ['main_page', ]
+
     # list_filter = ['published_date', 'main_page']
-    inlines = [Item_imageInline, ]
     exclude=("file",)
     search_fields = ['title']
 
@@ -45,6 +44,13 @@ class CategoryAdmin(DjangoMpttAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
 admin.site.register(Category, CategoryAdmin)
+
+
+
+
+
+
+admin.site.register(Brands)
 
 
 #class OrderAdmin(admin.ModelAdmin):

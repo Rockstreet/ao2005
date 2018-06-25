@@ -65,6 +65,17 @@ class Category(MPTTModel, BaseShop):
         verbose_name_plural = _("Категории")
         ordering = ['num']
 
+class Brands(models.Model):
+    title = models.CharField(_("Название"), default='', max_length=255)
+    file = ImageField(_("Логотип"), upload_to='category', blank=True)
+
+    class Meta:
+        verbose_name = _("Бренд")
+        verbose_name_plural = _("Бренды")
+
+    def __str__(self):
+        return self.title
+
 
 class Item(BaseShop):
 
@@ -75,6 +86,7 @@ class Item(BaseShop):
     offer = models.BooleanField("Показывать в спецпредложениях", default=False, blank=True)
     price_1 = models.DecimalField(_("Цена"), max_digits=10, decimal_places=2, blank=True, null=True)
     num = models.IntegerField(default=0, verbose_name=u'Порядковый номер')
+    brand = models.ForeignKey(Brands, verbose_name=u'Бренд', null=True, on_delete=models.CASCADE)
 
 
 
@@ -149,4 +161,6 @@ class OrderItem(BaseOrder):
 
     def __str__(self):
         return self.title
+
+
 

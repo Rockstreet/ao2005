@@ -9,6 +9,7 @@ urlpatterns = [
     # url(r'^shop/cart/order$', views.CartOrder, name='cart_order'),
     url(r'^shop/$', views.ListView.as_view(), name='list_all'),
     url(r'^shop/(?P<slug>[-\w]+)/$', views.DetailView.as_view(), name='detail'),
+    url(r'^shop/(?P<slug>[-\w]+)/brand/(?P<brand>[0-9]*)/$', views.DetailView.as_view(), name='detail_filter'),
     url(r'^shop/(?P<slug_category>[-\w]+)/product/(?P<slug>[-\w]+)/$', views.ProductView.as_view(), name='product'),
     url(r'^shop/search$', views.SearchListView.as_view(), name='list_search'),
 ]

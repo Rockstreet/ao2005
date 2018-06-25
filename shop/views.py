@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.forms import ModelForm
-from .models import Category, Item, Order, OrderItem, Status, UserProfile
+from .models import Category, Item, Order, OrderItem, Status, UserProfile, Brands
 from easycart import BaseCart, BaseItem
 from cart.views import Cart
 from django.contrib.auth.models import User
@@ -13,6 +13,7 @@ from django import forms
 from django.views.generic import View
 from django.core.mail import send_mail
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
+from itertools import groupby
 
 
 class NoRegOrderForm(forms.Form):
@@ -187,6 +188,7 @@ class CartView(generic.ListView):
         return context
 
 
+
 class DetailView(generic.DetailView):
     model = Category
 
@@ -194,15 +196,37 @@ class DetailView(generic.DetailView):
         context = super(DetailView, self).get_context_data(**kwargs)
         context['slug'] = self.kwargs['slug']
         current_category = Category.objects.get(slug=context['slug'])
-        # print (current_category.get_family())
-        # print (current_category.get_root())
         context['nodes'] = Category.objects.all()
         context['current_category'] = current_category
         context['current_category_root'] = current_category.get_root()
-        # context['current_category_root'] = current_category.values_list('dinner__id', flat=True)
         context['object_list'] = Category.objects.filter(parent=current_category.pk)
         context['global_object_list'] = Category.objects.filter(level__lte=0)
-        context['item_list'] = current_category.item_set.all()
+
+
+        try:
+            self.kwargs['brand']
+            context['item_list'] = current_category.item_set.filter(brand=self.kwargs['brand'])
+            context['this_brand'] = int(self.kwargs['brand'])
+
+        except:
+            context['item_list'] = current_category.item_set.all()
+
+
+        brand=[]
+        for item in current_category.item_set.all():
+                 brand.append(item.brand)
+        brand_unic = [el for el, _ in groupby(brand)]
+
+
+
+
+        context['brand'] = brand
+        context['brand_unic'] = brand_unic
+
+
+
+
+
         return context
 
 

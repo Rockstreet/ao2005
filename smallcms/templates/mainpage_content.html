@@ -22,10 +22,6 @@
 </div>
 
 
-
-
-
-
 {% block action %}
 
         {% include "action.html" %}
@@ -54,22 +50,37 @@
 
     <div class="row text-left">
 
+
         <div class="col-3 offset-2" style="cursor: pointer;">
+<a href="{% url 'news:detail' main_news.all.1.pk %}" title="{{ main_news.all.0.title }} ">
 
-            <img src="/static/images/news1.jpg">
-            <div class="news_block">Активный отдых стал спонсором большого рыболовного праздника </div>
-            <div class="news_block_tail">12.05.2018</div>
+    {% thumbnail main_news.all.0.file_news "200x200" crop="center" as im %}
 
+            <img src="{{ im.url }}" title="{{ main_news.all.0.small_text }}" alt="{{ main_news.all.0.small_text }}">
+
+     {% endthumbnail %}
+
+            <div class="news_block">{{ main_news.all.0.small_text }} </div>
+            <div class="news_block_tail">{{ main_news.all.0.published_date }}</div>
+</a>
         </div>
 
 
-        <div class="col-3 offset-2" style="cursor: pointer;">
 
-            <img src="/static/images/news2.jpg">
-            <div class="news_block">Активный отдых стал спонсором большого рыболовного праздника  и нетолько </div>
-            <div class="news_block_tail">12.05.2018</div>
+        <div class="col-3 offset-2" style="cursor: pointer;">
+<a href="{% url 'news:detail' main_news.all.1.pk %}" title="{{ main_news.all.0.title }} ">
+
+    {% thumbnail main_news.all.1.file_news "200x200" crop="center" as im %}
+
+            <img src="{{ im.url }}" title="{{ main_news.all.1.small_text }}" alt="{{ main_news.all.1.small_text }}">
+
+     {% endthumbnail %}
+
+            <div class="news_block">{{ main_news.all.1.small_text }} </div>
+            <div class="news_block_tail">{{ main_news.all.1.published_date }}</div>
+    </a>
 
         </div>
-
 
     </div>
+

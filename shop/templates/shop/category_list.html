@@ -3,118 +3,49 @@
 {% load cms_tags %}
 {% block breadcrumb %}
 
-
-
-
         <a href="/" class="breadcumb__page no-decoration">Главная</a>
+       <span class="breadcumb__del no-decoration">»</span>
+
+                        <a href="/shop/">Магазин</a>
+                    <span class="breadcumb__del no-decoration">»</span>
 
 
 {% endblock %}
 
-{% block title %}Каталог{% endblock title %}
-
-
-
+{% block title %}Магазин{% endblock title %}
 
 {% block content %}
 
 
-     <div class="container" style="background-color: {{ sitting.main_back_color | safe }}; margin-left: -15px;">
-				<header class="tab-header clearfix wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.7s; animation-name: fadeInUp;">
-					<h2 class="title title--main pull-left">Магазин2<span class="line line--small"><span class="line__first"></span><span class="line__second"></span></span></h2>
-					<div class="tab-toggles pull-right js-isotope-btns">
-
-					</div>
-				</header>
+    <div class="row justify-content-center big_img_blok">
 
 
+    <div class="inline_bloks" >
+    </div>
 
-        <div class="row" style="padding-right: 25px;">
-            <div class="col-lg-3 visible-lg-block" >
+    <div class="inline_bloks" id="block1" >
+        <a href="/shop/rybalka-i-turizm/"><img  src="/static/images/fish_img.jpg" ></a>
+    </div>
 
+    <div class="inline_bloks" >
+    </div>
 
+    <div class="inline_bloks" id="block2">
+        <a href="/shop/sport/"><img src="/static/images/sport_img.jpg" ></a>
+    </div>
 
+    <div class="inline_bloks" >
+    </div>
 
-				{% for category_obj in object_list %}
-					<div class="root_catalog"><a href="{% url 'shop:detail' category_obj.slug %}" class="root_catalog_link">{{ category_obj.title }}</a></div>
-         		{% endfor %}
-
-
-				{% for banner in banners %}
-				<div style="padding-top: 20px; text-align: center;">
-
-					{% if banner.banner_file %}
-					<a href="{{ banner.banner_file.url }}" class="root_catalog_link" title="{{ banner.banner_name }}">
-					{% else %}
-					<a href="{{ banner.banner_link }}" class="root_catalog_link" title="{{ banner.banner_name }}">
-					{% endif %}
-
-						<img src="{{ banner.banner_image.url }}" width="270" height="120">
-
-					</a>
-					</div>
-         		{% endfor %}
+</div>
 
 
+    {% block action %}
 
+        {% include "action.html" %}
 
+{% endblock action %}
 
-            </div>
-            <div class="col-md-12 col-lg-9">
-        <div class="row isotope" style="position: relative; height: 315px;">
-
-
-            {% for category_obj in object_list %}
-
-          {% thumbnail category_obj.file "250x250" crop="center" as im %}
-
-
-        <div class="col-md-3 col-xs-6 isotope-item"  style="position: absolute; left: 0px; top: 0px; visibility: visible; margin-bottom: 15px;">
-						<a href="{% url 'shop:detail' category_obj.slug %}"  class="listing-anons equal-height-item listing-anons--home triangle triangle--big line-down no-decoration" style="height: 315px;">
-							<div class="listing-anons__img">
-
-
-                                <img src="{{ im.url }}" class="img-responsive"  alt="{{ category_obj.title }}">
-							</div>
-                            {% if category_obj.new_flag == True %}
-
-                        <div class="new_flag" style="width: 100%;text-align: center;  background-color: #EE0000; color: #FFFFFF; font-weight: bold; ">НОВИНКА</div>
-
-                            {% else %}
-                        <br>
-                        {% endif %}
-							<div class="listing-anons__title">
-                                         
-
-
-								<h4 class="name">{{ category_obj.title }}
-									({% last_child category_obj %})
-								</h4>
-								<h5 style="font-weight: normal;">Цена от <b>{% min_child category_obj user.is_anonymous %}</b> до <b>{% max_child category_obj user.is_anonymous %}</b> руб</h5>
-
-							</div>
-
-
-
-							<div class="listing-anons__hidden">
-								<h3>{{ category_obj.title }}</h3>
-							</div>
-						</a>
-					</div>
-
-          {% endthumbnail %}
-
-         {% endfor %}
-
-
-
-
-        </div>
-        </div>
-        </div>
-     </div>
-
-<br>
 
 {% endblock content %}
 
@@ -124,13 +55,3 @@
 
 
 
-{% comment %}
-{% block content %}
-<div class="container">
-
-
-    {% for category_obj in object_list %}
-        <a href="{% url 'shop:detail' category_obj.slug %}">{{ category_obj.title }}</a><br>
-    {% endfor %}
-</div>
-{% endblock content %}{% endcomment %}
