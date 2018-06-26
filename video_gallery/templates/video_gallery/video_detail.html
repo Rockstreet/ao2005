@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load embed_video_tags %}
+
+{% block breadcrumb %}
+    <a href="/" class="breadcumb__page no-decoration">Главная</a>
+					<span class="breadcumb__del no-decoration">»</span>
+                    <a href="{% url 'video_gallery:list_all'  %}"> Наши видеообзоры </a>
+                    <span class="breadcumb__del no-decoration">»</span>
+					<a href="#" class="breadcumb__page no-decoration">{{ video.title }}</a>
+
+{% endblock %}
+
+
+{% block title %}Галлерея{% endblock title %}
+
+{% block content %}
+
+
+
+
+    <div class="container">
+				<header>
+					<h2 class="title">{{ video.title}}</h2>
+
+				</header>
+
+        <div class="row">
+
+        <div class="col-md-12 text-center">
+
+            {% video video.youtube_url '800x600' %}
+
+
+        </div>
+
+</div>
+
+    </div>
+
+{% endblock content %}
+
+

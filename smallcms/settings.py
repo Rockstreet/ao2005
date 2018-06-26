@@ -87,7 +87,8 @@ INSTALLED_APPS = [
     'shop',
     'user_profile',
     'registration',
-    'smallcms'
+    'smallcms',
+    'video_gallery'
 ]
 
 MIDDLEWARE = [

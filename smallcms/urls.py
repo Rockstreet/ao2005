@@ -50,6 +50,7 @@ urlpatterns = [
     url(r'', include('news.urls', namespace='news')),
     url(r'', include('shop.urls', namespace='shop')),
     url(r'^cart/', include('cart.urls')),
+    url(r'^video_gallery/', include('video_gallery.urls', namespace='video_gallery')),
     url(r'^accounts/', include('user_profile.urls', namespace='profile')),
 ]
 
