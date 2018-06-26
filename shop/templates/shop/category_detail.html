@@ -89,7 +89,7 @@
                     <h4 class="title title--main pull-left">{{ category.title}}</h4>
                 </header><br>
 
-                <a {% if not this_brand %} id="this_brand" {% endif %} href="{% url 'shop:detail' category.slug %}">Все</a>
+                {% if brand_unic %}<a {% if not this_brand %} id="this_brand" {% endif %} href="{% url 'shop:detail' category.slug %}">Все</a>{% endif %}
 
 
                 {% for brands in brand_unic %}

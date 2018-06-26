@@ -159,12 +159,14 @@ h1{
     border: #851f11 1px solid;
     display: flex;
     align-items: center;
-    background-color: #eeefed;
+    background-color: #FFFFFF;
 }
 
 .thumbnail {
     margin: auto;
  }
+
+
 
 .carusel_text{
     background: #ff800f;

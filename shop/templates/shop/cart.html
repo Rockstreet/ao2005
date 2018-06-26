@@ -4,7 +4,7 @@
 
 {% block breadcrumb %}
     <a href="/">Главная</a><span class="breadcumb__del no-decoration">»</span>
-    <a href="{% url 'shop:list_all'  %}"> Каталог </a><span class="breadcumb__del no-decoration">»</span>
+    <a href="{% url 'shop:list_all'  %}"> Магазин </a><span class="breadcumb__del no-decoration">»</span>
     Корзина
 
 {% endblock %}
@@ -17,7 +17,6 @@
 
     {% if cart.item_count > 0 %}
 
-    <h4>Товары в наличии</h4>
 
   <table class="cart" width="100%" cellpadding="15" cellspacing="15">
     <thead>
@@ -30,11 +29,15 @@
         <th>Удалить</th>
       </tr>
     </thead>
-    <tbody>
+
+      <tbody>
+
+
+
       {% for item in cart.list_items  %}
         {% with product=item.obj %}
 
-                  {% if product.stock == 1 %}
+
 
           <tr>
             <td>
@@ -52,13 +55,13 @@
                 </div>
 
             </td>
-              <td><a href="{% url "shop:product" product.item.category.first.slug product.item.slug %}">{{ product.item.title }} ({{ product.title }})</a></td>
-            <td>
-                <div class="input-group" style="width: 120px;">
-                  <input type="number" class="form-control cart-quantity input-number" data-step="{{ product.item.min_lot }}" value="{{ item.quantity }}" min="0" max="999">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" onclick="cart.changeQuantity('{{ product.pk }}', $(this).parent().prev('.cart-quantity').val())" title="Изменить количество">
-                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+              <td><a href="{% url "shop:product" product.category.first.slug product.slug %}"> {{ product.title }}</a></td>
+            <td width="150">
+                <div class="input-group mb-3" >
+                  <input type="number" class="form-control cart-quantity input-number"  value="{{ item.quantity }}" min="0" max="999">
+                  <span class="input-group-append">
+                     <button class="btn btn-outline-secondary" type="button" onclick="cart.changeQuantity('{{ product.pk }}', $(this).parent().prev('.cart-quantity').val())" title="Изменить количество">
+                        <span class="oi oi-loop-square"></span>
                     </button>
                   </span>
                 </div>
@@ -66,104 +69,38 @@
             <td class="num">
 
 
-            {% if user and not user.is_anonymous  %}    {{ product.price_2 }}
 
-                {% else %}
                 {{ product.price_1 }}
-            {% endif %}
+
 
                 руб.</td>
 
           {% if user and not user.is_anonymous  %}
-            <td class="num">{% mult product.price_2 item.quantity %} руб.</td>
+            <td class="num">{% mult product.price_1 item.quantity %} руб.</td>
           {% else %}
           <td class="num">{% mult product.price_1 item.quantity %} руб.</td>
           {% endif %}
-            <td>
-                <button onclick="cart.remove('{{ product.pk }}')">Удалить</button>
+            <td align="center">
+                <button title="Удалить" class="btn btn-danger" onclick="cart.remove('{{ product.pk }}')"><span class="oi oi-trash"></span></button>
             </td>
           </tr>
-      {% endif %}
+
         {% endwith %}
       {% endfor %}
 
 
 
-<tr>
-<td>
-<h4>Товары в ожидании</h4>
-</td>
-</tr>
 
 
 
-      {% for item in cart.list_items  %}
-        {% with product=item.obj %}
-
-      {% if product.stock == 2 %}
-
-          <tr>
-            <td>
-
-                <div class="thumbnail_container">
-
-                {% if product.item_image_set.first.file %}
-                    {% thumbnail product.item_image_set.first.file "50x50" crop="center" as im %}
-                        <img src="{{ im.url }}" class="img-responsive img-thumbnail">
-                    {% endthumbnail %}
-                {% else %}
-                      <img src="/static/images/nofoto.jpg" class="img-responsive" width="50"  alt="{{ item_obj.title }}">
-
-               {% endif %}
-                </div>
-
-            </td>
-              <td><a href="{% url "shop:product" product.item.category.first.slug product.item.slug %}">{{ product.item.title }} ({{ product.title }})</a></td>
-            <td>
-                <div class="input-group" style="width: 120px;">
-                  <input type="number" class="form-control cart-quantity input-number" data-step="{{ product.item.min_lot }}" value="{{ item.quantity }}" min="0" max="999">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" onclick="cart.changeQuantity('{{ product.pk }}', $(this).parent().prev('.cart-quantity').val())" title="Изменить количество">
-                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-                    </button>
-                  </span>
-                </div>
-            </td>
-            <td class="num">
-
-
-            {% if user and not user.is_anonymous  %}    {{ product.price_2 }}
-
-                {% else %}
-                {{ product.price_1 }}
-            {% endif %}
-
-                руб.</td>
-
-          {% if user and not user.is_anonymous  %}
-            <td class="num">{% mult product.price_2 item.quantity %} руб.</td>
-          {% else %}
-          <td class="num">{% mult product.price_1 item.quantity %} руб.</td>
-          {% endif %}
-            <td>
-                <button onclick="cart.remove('{{ product.pk }}')">Удалить</button>
-            </td>
-          </tr>
-
-      {% endif %}
-
-        {% endwith %}
-      {% endfor %}
     </tbody>
     </table>
 
 <div class="row" style="margin: 20px 0px 20px 0px">
 
 
-<div class="col-md-12 col-md-offset-9">
+<div class="col-md-12 text-right">
       <h4><b>Итого</b> : {{ real_count_cart }} руб.</h4>
-
-
 </div>
 </div>
 
@@ -196,22 +133,6 @@
     <input type="hidden" name="inn" value="{{ userprofile.inn }}">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {% else %}
 
 
@@ -242,7 +163,6 @@
     </form>
 
 </div>
-</div>
-</div>
-    </div>
+
+
 {% endblock %}
