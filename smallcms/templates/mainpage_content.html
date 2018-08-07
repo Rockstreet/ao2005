@@ -32,7 +32,7 @@
 <a href="{% url 'video_gallery:list_all' %}" title="Видео обзоры">
         <div class="row" >
 
-            <div class="col-12 video_bg mt-5 text center" style="cursor: pointer;">
+            <div class="col-md-12 video_bg mt-5 text center" style="cursor: pointer;">
                 <div>
                 <img src="/static/images/youtubebutton.png">
                     <h2>НАШИ ВИДЕО ОБЗОРЫ</h2>
@@ -44,7 +44,7 @@
 
 
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-md-12 text-center">
             <h1>Новости</h1>
         </div>
     </div>
@@ -52,7 +52,7 @@
     <div class="row text-left">
 
 
-        <div class="col-3 offset-2" style="cursor: pointer;">
+        <div class="col-md-3 offset-2" style="cursor: pointer;">
 <a href="{% url 'news:detail' main_news.all.1.pk %}" title="{{ main_news.all.0.title }} ">
 
     {% thumbnail main_news.all.0.file_news "200x200" crop="center" as im %}
@@ -68,7 +68,7 @@
 
 
 
-        <div class="col-3 offset-2" style="cursor: pointer;">
+        <div class="col-md-3 offset-2" style="cursor: pointer;">
 <a href="{% url 'news:detail' main_news.all.1.pk %}" title="{{ main_news.all.0.title }} ">
 
     {% thumbnail main_news.all.1.file_news "200x200" crop="center" as im %}

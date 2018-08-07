@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 # from .models import UserProfile
 from shop.models import Category, Item, Order, OrderItem, Status, UserProfile
-from .forms import RegisterForm1,RegisterForm2
+from .forms import RegisterForm1,RegisterForm2, UserProfileForm
 
 from django.forms.models import inlineformset_factory
 from django.core.exceptions import PermissionDenied
@@ -21,15 +21,6 @@ def edit_user(request):
     ProfileInlineFormset = inlineformset_factory(User, UserProfile, fields=(
         'name',
         'phone',
-        'company_name',
-        'inn',
-        'kpp',
-        'orgn',
-        'bank',
-        'bik',
-        'rs',
-        'ks',
-        'city',
         'adres',
     ), can_delete=False)
 

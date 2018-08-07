@@ -27,7 +27,7 @@ SECRET_KEY = 'qc)5rh6*$n60cdxd21m!^0hzaflw*o*k@e+91^957+g0t9lybo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'ao2005.ru', 'www.ao2005.ru']
+ALLOWED_HOSTS = ['127.0.0.1','194.177.23.72', 'ao2005.ru', 'www.ao2005.ru']
 
 
 
@@ -149,8 +149,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
+        'HOST': 'localhost',
         'HOST': 'db',
-        'PORT': 5432,
+        # 'NAME': 'postgres',
+        # 'USER': 'postgres',
+        # 'HOST': 'localhost',
+        # 'PORT': 5432,
+        # 'PASSWORD': 'postgres',
+        # 'PORT': 5432,
     }
 }
 
@@ -190,6 +196,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
+
+
+# STATIC_ROOT = '/sites/tutorial/static'
+# STATIC_URL = '/static'
+# MEDIA_ROOT = '/sites/tutorial/media'
+# MEDIA_URL = '/media'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')

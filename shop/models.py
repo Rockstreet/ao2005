@@ -13,21 +13,14 @@ from django.contrib.auth.models import User as auth_user
 from sorl.thumbnail import ImageField
 from phonenumber_field.modelfields import PhoneNumberField
 
+from decimal import *
+
 from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User,related_name='related_name_user')
-    name = models.CharField(_("Контактное лицо"), max_length=1000, default='')
+    name = models.CharField(_("ФИО"), max_length=1000, default='')
     phone = models.CharField(_("Телефон"), max_length=1000, default='')
-    company_name = models.CharField(_("Название компании"), max_length=1000, default='')
-    inn = models.CharField(_("ИНН"), max_length=1000, default='')
-    kpp = models.CharField(_("КПП"), max_length=1000, default='')
-    orgn = models.CharField(_("ОГРН"), max_length=1000, default='')
-    bank = models.CharField(_("Наименование банка"), max_length=1000, default='')
-    bik = models.CharField(_("БИК"), max_length=1000, default='')
-    rs = models.CharField(_("Р/C"), max_length=1000, default='')
-    ks = models.CharField(_("К/C"), max_length=1000, default='')
-    city = models.CharField(_("Город"), max_length=1000, default='')
     adres = models.CharField(_("Адрес доставки"), max_length=1000, default='')
 
     class Meta:
@@ -39,7 +32,7 @@ class BaseShop(models.Model):
     created_date = models.DateTimeField(_("Дата создания"), auto_now_add=True, editable=False)
     edited_date = models.DateTimeField(_("Дата редактирования"), auto_now=True, editable=False, null=True)
 
-    title = models.CharField(_("Название"), max_length=1000, default='')
+    title = models.TextField(_("Название"), max_length=10000, default='')
     meta_description = models.CharField(_("Description"), max_length=1000, blank=True)
     meta_keywords = models.CharField(_("Keywords"), max_length=1000, blank=True)
     slug = models.SlugField(_("Имя для url"), unique=True, blank=True, help_text=_("Только английские буквы, цифры и знаки минус и подчеркивание."))
@@ -58,6 +51,7 @@ class Category(MPTTModel, BaseShop):
     content = RichTextUploadingField("Описание", blank=True)
     num = models.IntegerField(default=0, verbose_name=u'Порядковый номер')
     new_flag = models.BooleanField("Показывать как новинку", default=False)
+    code1c = models.IntegerField(_("Код базы"),  default=0)
 
 
     class Meta:
@@ -86,8 +80,9 @@ class Item(BaseShop):
     offer = models.BooleanField("Показывать в спецпредложениях", default=False, blank=True)
     price_1 = models.DecimalField(_("Цена"), max_digits=10, decimal_places=2, blank=True, null=True)
     num = models.IntegerField(default=0, verbose_name=u'Порядковый номер')
-    brand = models.ForeignKey(Brands, verbose_name=u'Бренд', null=True, on_delete=models.CASCADE)
-
+    brand = models.ForeignKey(Brands, verbose_name=u'Бренд', null=True, blank=True, on_delete=models.CASCADE)
+    in_stock = models.IntegerField(default=0, verbose_name=u'Количество на складе')
+    id1c = models.IntegerField(default=0, verbose_name=u'1C - ID')
 
 
     class Meta:
@@ -136,12 +131,17 @@ class Status(models.Model):
 
 
 class Order(BaseOrder):
-    customer = models.ForeignKey(auth_user, verbose_name=u'Пользователь')
+    created_date = models.DateTimeField(_("Дата создания"), auto_now_add=True, editable=False)
+    customer = models.ForeignKey(auth_user, verbose_name=u'Пользователь', blank=True, null=True)
     total_price = models.DecimalField(_("Общая стоимость"), max_digits=10, decimal_places=2, blank=True, null=True)
-    status = models.ForeignKey(Status, verbose_name=u'Текущий статус', blank=True, null=True)
     email = models.EmailField(_("Email"),  default='')
     address = models.TextField(_("Адрес доставки"))
-    phone_number = PhoneNumberField(_("Телефон"),default='')
+    name =  models.TextField(_("ФИО заказчика"),default='')
+    phone_number = models.TextField(_("Телефон"),default='')
+    type_diliver = models.TextField(_("Тип доставки"),default='')
+    order_pay = models.TextField(_("Оплата"),default='')
+
+
 
     class Meta:
         verbose_name = _("Заказ")

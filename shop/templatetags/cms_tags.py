@@ -18,7 +18,9 @@ def cookie(context, cookie_name): # could feed in additional argument to use as 
 
 @register.simple_tag()
 def mult(value, arg):
-    return int(value) * int(arg)
+    a = float(value) * float(arg)
+    n = 2
+    return '{a:.{n}f}'.format(**vars())
 
 
 @register.simple_tag

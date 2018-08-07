@@ -29,23 +29,12 @@ class MyRegistrationView(RegistrationView):
         new_user = super(MyRegistrationView, self).register(form_class)
         name = form_class.cleaned_data['name']
         phone = form_class.cleaned_data['phone']
-        company_name = form_class.cleaned_data['company_name']
-        inn = form_class.cleaned_data['inn']
-        kpp = inn = form_class.cleaned_data['kpp']
-        orgn = inn = form_class.cleaned_data['orgn']
-        bank = inn = form_class.cleaned_data['bank']
-        bik = inn = form_class.cleaned_data['bik']
-        rs = inn = form_class.cleaned_data['rs']
-        ks = inn = form_class.cleaned_data['ks']
-        city = form_class.cleaned_data['city']
         adres = form_class.cleaned_data['adres']
 
         send_message = '<h2>Регистрация нового пользователя на сайте CAIMAN </h2>'
         send_message = send_message + '<b>Имя пользователя:</b> ' + new_user.username + '<br><br>'
         send_message = send_message + '<b>Имя:</b> ' + name + '<br><br>'
-        send_message = send_message + '<b>Наименование компании:</b> ' + company_name + '<br><br>'
         send_message = send_message + '<b>Телефон:</b> ' + phone + '<br><br>'
-        send_message = send_message + '<b>Город:</b> ' + city + '<br><br>'
         send_message = send_message + '<b>Адрес доставки:</b> ' + adres + '<br>'
 
 
@@ -53,7 +42,7 @@ class MyRegistrationView(RegistrationView):
 
         # try:
         #     send_mail('Регистрация нового пользователя', send_message, 'sendfromsite@caimanfishing.ru',
-        #           ['ivan.tolkachev@gmail.com', 'orders@caimanfishing.ru'], fail_silently=False, auth_user=None,
+        #           ['ivan.tolkachev@gmail.com'], fail_silently=False, auth_user=None,
         #           auth_password=None, connection=None, html_message=send_message)
         # except Exception:
         #     print("Nosend")
@@ -64,14 +53,14 @@ class MyRegistrationView(RegistrationView):
 
 
 
-        new_profile = UserProfile.objects.create(user=new_user, name=name, phone=phone, company_name=company_name, inn=inn, kpp=kpp, orgn=orgn, bank=bank, bik=bik, rs=rs,ks=ks, city=city, adres=adres)
+        new_profile = UserProfile.objects.create(user=new_user, name=name, phone=phone, adres=adres)
         new_profile.save()
 
 
         #print(new_user.pk)
 
         user = User.objects.get(pk=new_user.pk)
-        user.is_active = False
+        user.is_active = True
         user.save()
 
         redirect('/shop/')

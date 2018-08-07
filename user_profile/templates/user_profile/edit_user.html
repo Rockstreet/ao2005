@@ -25,13 +25,13 @@
                 <a href="{% url 'auth_logout' %}" class="">выход <span class="fa fa-sign-in"></span></a>
             </div>
 
-            <div class="root_catalog"><a href="{% url 'profile:orders_history' %}" class="root_catalog_link">История заказов</a></div>
-            <div class="root_catalog"><a href="{% url 'profile:edit_user' %}" class="root_catalog_link">Редактирование профиля</a></div>
+            <div class=""><a href="{% url 'profile:orders_history' %}" class="root_catalog_link">История заказов</a></div>
+            <div class=""><a href="{% url 'profile:edit_user' %}" class="root_catalog_link">Редактирование профиля</a></div>
         </div>
         <div class="col-md-12 col-lg-9">
-            <div class="card">
+            <div class="card" style="border: none;">
                 <div class="card-content">
-                    <h2 class="flow-text">Редактирование профиля</h2>
+                    <h3 class="flow-text">Редактирование профиля</h3>
                     {% bootstrap_messages %}
                     <form action="." method="POST" class="form-horizontal">
                         {% csrf_token %}

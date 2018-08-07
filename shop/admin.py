@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_mptt_admin.admin import DjangoMpttAdmin
-from .models import Item, Item_image, Category, Order, Status, Brands
+from .models import Item, Item_image, Category, Order, Status, Brands, OrderItem
 import nested_admin
 
 
@@ -44,6 +44,34 @@ class CategoryAdmin(DjangoMpttAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
 admin.site.register(Category, CategoryAdmin)
+
+
+class ItemInLineOrder(admin.TabularInline):
+    model = OrderItem
+    readonly_fields = ('item','cols','price')
+    exclude = ('title',)
+
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
+
+class OrdersAdmin(admin.ModelAdmin):
+    list_display = ('id','created_date','total_price', 'type_diliver', )
+
+    readonly_fields = ('total_price','type_diliver','email','address','phone_number','order_pay','name','customer')
+
+    inlines = [
+        ItemInLineOrder,
+    ]
+
+
+
+admin.site.register(Order, OrdersAdmin)
 
 
 

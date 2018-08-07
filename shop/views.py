@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404, render, render_to_response
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.forms import ModelForm
@@ -15,14 +15,19 @@ from django.core.mail import send_mail
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from itertools import groupby
 
+from django.views.decorators.csrf import csrf_exempt
+
+
+from django.utils.text import slugify
+
+from decimal import Decimal
+
+
 
 class NoRegOrderForm(forms.Form):
-    your_name = forms.CharField(label='Имя', max_length=100, widget=forms.TextInput(attrs={'size':'40', 'class':'form-control'}))
-    company_name = forms.CharField(required=False, label='Наименование компании', max_length=100, widget=forms.TextInput(attrs={'size':'40', 'class':'form-control'}))
+    your_name = forms.CharField(label='ФИО', max_length=100, widget=forms.TextInput(attrs={'size':'40', 'class':'form-control'}))
     phone = forms.CharField(label='Телефон', max_length=100, widget=forms.TextInput(attrs={'size':'40', 'class':'form-control'}))
     email = forms.EmailField(required=False, label='E-mail', max_length=100, widget=forms.TextInput(attrs={'size':'40', 'class':'form-control'}))
-    dost_need = forms.BooleanField(required=False, label='Необходима доставка')
-    dost_adres = forms.CharField(required=False, label='Адрес доставки', max_length=100, widget=forms.TextInput(attrs={'size':'40', 'class':'form-control'}))
 
 
 class PostOrder(View):
@@ -31,7 +36,7 @@ class PostOrder(View):
         cart = Cart(request)
 
         name = request.POST.get('your_name')
-        company_name = request.POST.get('company_name')
+
         phone = request.POST.get('phone')
         email = request.POST.get('email')
         dost_adres = request.POST.get('dost_adres')
@@ -40,13 +45,21 @@ class PostOrder(View):
 
         dost_need = request.POST.get('dost_need')
 
+        delyvery =  request.POST.get('delyvery')
+
+        payonline =  request.POST.get('payonline')
+
+
+
+
+
+
         if(request.user.is_authenticated):
             send_message = '<h2>Заказ с сайта CAIMAN от пользователя '+user_name+' </h2>'
         else:
             send_message = '<h2>Анонимный заказ с сайта CAIMAN </h2>'
 
         send_message = send_message + '<b>Имя:</b> ' + name + '<br><br>'
-        send_message = send_message + '<b>Наименование компании:</b> ' + company_name + '<br><br>'
         send_message = send_message + '<b>Телефон:</b> ' + phone + '<br><br>'
         send_message = send_message + '<b>E-mail:</b> ' + email + '<br><br>'
         if(dost_need): send_message = send_message + '<b>Необходима доставка - адрес доставки:</b> ' + dost_adres + '<br>'
@@ -54,84 +67,58 @@ class PostOrder(View):
         send_message = send_message + '<h2>Товары заказа</h2><table cellspacing="4" cellpadding="4"><tr><td align="center"><b>Наименование</b></td><td align="center"><b>Количество</b></td><td align="center" ><b>Цена</b></td><td align="center"><b>Сумма</b></td></tr>'
         total=0
 
-        send_message = send_message + '<tr><td><h4>Товары в наличии</h4></td></tr>'
 
-        if (request.user.is_authenticated):
-            for item in cart.list_items(lambda item: item.obj.title):
-
-                if (item.obj.stock == 1):
-                    total += item.obj.price_2 * item.quantity
-                    send_message = send_message + '<tr><td>'+item.obj.item.title+' '+item.obj.title+'</td><td align="center">'+str(item.quantity)+'</td><td align="center">'+str(item.obj.price_2)+' руб.</td><td align="center">'+str(item.obj.price_2*item.quantity)+'руб.</td></tr>'
-        else:
-            for item in cart.list_items(lambda item: item.obj.title):
-                if (item.obj.stock == 1):
+        for item in cart.list_items(lambda item: item.obj.title):
                     total += item.obj.price_1 * item.quantity
-                    send_message = send_message + '<tr><td>'+item.obj.item.title+' '+item.obj.title+'</td><td align="center">'+str(item.quantity)+'</td><td align="center">'+str(item.obj.price_1)+' руб.</td><td align="center">'+str(item.obj.price_1*item.quantity)+'руб.</td></tr>'
-
-        send_message = send_message + '<tr><td><h4>Товары в ожидании</h4></td></tr>'
-
-
-        if (request.user.is_authenticated):
-            for item in cart.list_items(lambda item: item.obj.title):
-                if (item.obj.stock == 2):
-                    total += item.obj.price_2 * item.quantity
-                    send_message = send_message + '<tr><td>'+item.obj.item.title+' '+item.obj.title+'</td><td align="center">'+str(item.quantity)+'</td><td align="center">'+str(item.obj.price_2)+' руб.</td><td align="center">'+str(item.obj.price_2*item.quantity)+'руб.</td></tr>'
-        else:
-            for item in cart.list_items(lambda item: item.obj.title):
-                if (item.obj.stock == 2):
-                    total += item.obj.price_1 * item.quantity
-                    send_message = send_message + '<tr><td>'+item.obj.item.title+' '+item.obj.title+'</td><td align="center">'+str(item.quantity)+'</td><td align="center">'+str(item.obj.price_1)+' руб.</td><td align="center">'+str(item.obj.price_1*item.quantity)+'руб.</td></tr>'
-
-
-
-
+                    send_message = send_message + '<tr><td>'+item.obj.title+'</td><td align="center">'+str(item.quantity)+'</td><td align="center">'+str(item.obj.price_1)+' руб.</td><td align="center">'+str(item.obj.price_1*item.quantity)+'руб.</td></tr>'
 
 
         send_message = send_message + '<tr><td colspan="4" align="right"><hr></td></tr>'
         send_message = send_message + '<tr><td colspan="4" align="right"><b>Итого: </b>'+str(total)+' руб. </td></tr></table>'
         print(send_message)
 
-        send_mail('Заказ с сайта CAIMAN', send_message, 'sendfromsite@caimanfishing.ru', ['ivan.tolkachev@gmail.com','orders@caimanfishing.ru'], fail_silently=False, auth_user=None,auth_password=None, connection=None, html_message=send_message)
-        # send_mail('Заказ с сайта CAIMAN', send_message, 'sendfromsite@caimanfishing.ru', ['trumpk@gmail.com',], fail_silently=False, auth_user=None,auth_password=None, connection=None, html_message=send_message)
+        # send_mail('Заказ с сайта ао2005.ru', send_message, 'sendfromsite@caimanfishing.ru',
+        #               ['ivan.tolkachev@gmail.com'], fail_silently=False,
+        #               auth_user='sendfromsite@caimanfishing.ru', auth_password='JmsdlfsldiJHMlsadfmKJ', connection=None,
+        #               html_message=send_message)
+
 
         # Select default status for the order
-        try:
-            default_status = Status.objects.get(default_status=True)
-        except:
-            default_status = Status.objects.first()
+
 
         # create order in the database history
         order = Order(
             customer_id=request.user.pk,
             total_price=total,
-            status=default_status
+            email=email,
+            name=name,
+            address=dost_adres,
+            phone_number=phone,
+            type_diliver=delyvery,
+            order_pay = 'None'
         )
         order.save()
 
+        order_id = order.id
+
 
         for item in cart.list_items(lambda item: item.obj.title):
-            if (request.user.is_authenticated):
+
                 order_item = OrderItem(
                     order = order,
                     item =  item.obj,
-                    title = item.obj.item.title + ' ' + item.obj.title,
-                    cols =  item.quantity,
-                    price = item.obj.price_2,
-                )
-            else:
-                order_item = OrderItem(
-                    order = order,
-                    item =  item.obj,
-                    title = item.obj.item.title + ' ' + item.obj.title,
+                    title = item.obj.title,
                     cols =  item.quantity,
                     price = item.obj.price_1,
                 )
-            order_item.save()
+                order_item.save()
 
         cart.empty()
 
-        return HttpResponseRedirect('/shop/order-success')
-
+        if(payonline=='False'):
+            return HttpResponseRedirect('/shop/order-success')
+        else:
+            return HttpResponseRedirect('/shop/order-pay/'+str(order_id))
 
 
 class CartOrder(generic.ListView):
@@ -276,3 +263,70 @@ class SearchListView(generic.ListView):
         context['nodes'] = Category.objects.all()
 
         return context
+
+
+class PayView(generic.TemplateView):
+    template_name = 'shop/payonline.html'
+
+
+
+
+
+class TestApi(generic.TemplateView):
+    template_name = 'shop/test_api.html'
+
+
+@csrf_exempt
+def capi(request):
+
+    alphabet = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i',
+                'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+                'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch', 'ы': 'i', 'э': 'e',
+                'ю': 'yu',
+                'я': 'ya'}
+
+    if request.method == 'POST':
+
+        try:
+            id1c = request.POST['id1c']
+            title = request.POST['title']
+            in_stock = request.POST['in_stock']
+            price_1 = request.POST['price_1']
+            category = request.POST['category']
+
+
+        except:
+            answer='Ошибка запроса'
+
+        if(id1c!=''):
+            count_this = Item.objects.filter(id1c=id1c).count()
+
+            if(count_this==0):
+
+                slug=slugify(''.join(alphabet.get(w, w) for w in title.lower()))+'-'+id1c;
+
+                this_object = Item(title=title, meta_description=title,meta_keywords=title,slug=slug,id1c=id1c,price_1=price_1,in_stock=in_stock)
+
+                this_object.save()
+
+                cat = Category.objects.filter(code1c=category).first()
+
+                this_object.category.add(cat)
+
+                answer = 'Product add'
+            else:
+                this_object = Item.objects.filter(id1c=id1c).first()
+                this_object.title=title
+                this_object.price_1=Decimal(price_1)
+                this_object.in_stock=in_stock
+                this_object.save()
+                answer = 'Product edited'
+
+        else:
+            answer = 'Параметр id1c должен быть задан'
+
+
+
+
+    return HttpResponse(answer)
+

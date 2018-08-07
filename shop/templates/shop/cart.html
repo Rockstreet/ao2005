@@ -108,29 +108,86 @@
 <div class="row">
 
 
-<div class="col-md-6 col-md-offset-5"><h4>Данные заказа</h4>
+<div class="col-md-7"><h4>Данные заказа</h4>
      {% if user and not user.is_anonymous  %}
 
             <form action="{% url "shop:order-success-post"%}"  method="post">
-       {% csrf_token %}
-<hr>
-    <b>Имя:</b>     {{ userprofile.name }}<br>
-    <b>Компания:</b> {{ userprofile.company_name }}<br>
 
-     <b>Необходима доставка:</b> <input type="checkbox" id="dost_need_check" name="dost_need">
+          {% csrf_token %}
+       <table class="table">
 
-    <div id="dost_need" style="display: none;"><br><b>Адрес доставки:</b>
+<tr>
+       <td><b>Имя пользователя:</b></td><td>{{ user }}</td>
+   </tr>
 
-    <input type="text" size="40" class="form-control" name="dost_adres" value="{{ userprofile.adres }}"><br></div>
+  <tr>
+       <td><b>ФИО:</b></td><td>{{ userprofile.name }}</td>
+   </tr>
+     <tr>
+       <td><b>Телефон:</b></td><td>{{ userprofile.phone }}</td>
+   </tr>
+        <tr>
+       <td><b>E-mail:</b></td><td>{{ user.email }}</td>
+   </tr>
 
 
-    <input type="hidden" name="user_name" value="{{ user }}">
 
-    <input type="hidden" name="your_name" value="{{ userprofile.name }}">
-    <input type="hidden" name="phone" value="{{ userprofile.phone }}">
-    <input type="hidden" name="company_name" value="{{ userprofile.company_name }}">
-    <input type="hidden" name="email" value="{{ user.email }}">
-    <input type="hidden" name="inn" value="{{ userprofile.inn }}">
+   <tr>
+       <td><b>Оплатить онлайн:</b></td><td> <input type="radio" name="payonline" value="True"></td>
+   </tr>
+<tr>
+    <td><b>Оплата при получении:</b></td><td> <input type="radio" name="payonline" value="False" checked></td>
+   </tr>
+       <tr>
+           <td><b>Способ доставки</b></td><td></td>
+       </tr>
+       <tr>
+           <td>Самовывоз</td><td> <input type="radio" name="delyvery" value="sam" checked></td>
+       </tr>
+       <tr>
+           <td>Почта России</td> <td><input type="radio" name="delyvery" value="post"></td>
+       </tr>
+       <tr>
+           <td>СДЕК</td><td><input type="radio" name="delyvery" value="sdek"></td>
+       </tr>
+       <tr>
+           <td>Boxberry</td><td><input type="radio" name="delyvery" value="box"></td>
+       </tr>
+
+       <tr>
+           <td><b>Адрес доставки:</b></td><td><input type="text" size="40" class="form-control" name="dost_adres" value="{{ userprofile.adres }}"></td>
+       </tr>
+
+
+           </table>
+             <input type="hidden" name="user_name" value="{{ user }}">
+            <input type="hidden" name="your_name" value="{{ userprofile.name }}">
+            <input type="hidden" name="phone" value="{{ userprofile.phone }}">
+            <input type="hidden" name="email" value="{{ user.email }}">
+
+
+{#<hr>#}
+{#    <b>ФИО:</b>     {{ userprofile.name }}<br>#}
+{##}
+{##}
+{#     <b>Необходима доставка1</b> <input type="checkbox" id="dost_need_check" name="dost_need">#}
+{##}
+{#    <div id="dost_need" style="display: none;"><br><b>Адрес доставки:</b>#}
+{##}
+{#    <input type="text" size="40" class="form-control" name="dost_adres" value="{{ userprofile.adres }}"><br></div>#}
+{##}
+{##}
+{#    <input type="hidden" name="user_name" value="{{ user }}">#}
+{##}
+{#    <input type="hidden" name="your_name" value="{{ userprofile.name }}">#}
+{#    <input type="hidden" name="phone" value="{{ userprofile.phone }}">#}
+{#    <input type="hidden" name="company_name" value="{{ userprofile.company_name }}">#}
+{#    <input type="hidden" name="email" value="{{ user.email }}">#}
+{#    <input type="hidden" name="inn" value="{{ userprofile.inn }}">#}
+{##}
+{#    Оплатить онлайн: <input type="radio" name="payonline" value="False">#}
+{#    Оплата при получении: <input type="radio" name="payonline" value="True">#}
+
 
 
     {% else %}
@@ -141,20 +198,45 @@
        {% csrf_token %}
        <table class="table">
    {{ form.as_table }}
-     <div id="dost_need" style="display: none;"><br><b>Адрес доставки:</b>
-    <input type="text" size="40" class="form-control" name="dost_adres" value="{{ userprofile.adres }}"><br></div>
+
+
+   <tr>
+       <td><b>Оплатить онлайн:</b></td><td> <input type="radio" name="payonline" value="True"></td>
+   </tr>
+<tr>
+    <td><b>Оплата при получении:</b></td><td> <input type="radio" name="payonline" value="False" checked></td>
+   </tr>
+       <tr>
+           <td><b>Способ доставки</b></td><td></td>
+       </tr>
+       <tr>
+           <td>Самовывоз</td><td> <input type="radio" name="delyvery" value="sam" checked></td>
+       </tr>
+       <tr>
+           <td>Почта России</td> <td><input type="radio" name="delyvery" value="post"></td>
+       </tr>
+       <tr>
+           <td>СДЕК</td><td><input type="radio" name="delyvery" value="sdek"></td>
+       </tr>
+       <tr>
+           <td>Boxberry</td><td><input type="radio" name="delyvery" value="box"></td>
+       </tr>
+
+       <tr>
+           <td><b>Адрес доставки:</b></td><td><input type="text" size="40" class="form-control" name="dost_adres" value=""></td>
+       </tr>
+
+
            </table>
 
 
 
     {% endif %}
 
-  <p class="text-right">
+ <p class="text-center">
     <a href="{% url "shop:list_all"%}" class="btn">Вернуться в магазин</a>
-
-
-    <input type="submit" class="button button--grey button--main btn" style="width: 125px;" value="Оформить заказ">
-  </p>
+    <input type="submit" class="btn btn-primary"  value="Оформить заказ">
+</p>
         {% else %}
             <h2 align="center">Ваша корзина пуста</h2>
             <a href="{% url "shop:list_all"%}" class="btn">Вернуться в магазин</a>
@@ -162,6 +244,9 @@
 
     </form>
 
+</div>
+
+    </div>
 </div>
 
 

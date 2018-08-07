@@ -37,7 +37,7 @@
                                     {% else %}
 
 
-                                       <a href="accounts/login/">Войти</a>
+                                       <a href="/accounts/login/">Войти</a>
 
         |
 
@@ -53,7 +53,7 @@
 <div class="row main_menu text-center ">
 
 
-    <div class="col-1 offset-1 align-middle" >
+    <div class="col-md-1 offset-1 align-middle" >
 
         <a href="/">
 
@@ -62,7 +62,7 @@
             </a>
 
     </div>
-    <div class="col-1 align-middle">
+    <div class="col-md-1 align-middle">
 
         <a href="/page/about/">
         О НАС
@@ -71,7 +71,7 @@
 
     </div>
 
-    <div class="col-1 align-middle">
+    <div class="col-md-1 align-middle">
         <a href="/page/dostavka/">
       ДОСТАВКА
             </a>
@@ -79,17 +79,17 @@
 
 
 
-    <div class="col-4 main_phone" >
+    <div class="col-md-4 main_phone" >
    (473) 220 96 65
     </div>
 
-    <div class="col-1">
+    <div class="col-md-1">
         <a href="/page/pay/">
     Оплата
         </a>
     </div>
 
-    <div class="col-1">
+    <div class="col-md-1">
         <a href="/page/contact/">
     Контакты
         </a>
@@ -103,15 +103,17 @@
 
 <div class="row logo_block">
 
-    <div class="col-7">
+    <div class="col-md-7">
+        <a href="/" title="На главную">
     <img src="/static/images/main_logo.png" class="main_logo">
+            </a>
     </div>
 
-    <div class="col-1 offset-1">
+    <div class="col-md-1 offset-1">
     <img src="/static/images/bascket.png">
     </div>
 
-    <div class="col-2 text-center">
+    <div class="col-md-2 text-center">
 
         <span class="basket-text">Товаров в корзине <b>{{ cart.item_count }}</b>
         на сумму <b>{{ real_count_cart }}  р.</b>
@@ -159,30 +161,30 @@
 
 
     <div class="row footer mt-5">
-        <div class="col-3 text-center" >
+        <div class="col-md-3 text-center" >
             <h2>НАВИГАЦИЯ</h2>
             <div class="row footer_links">
 
-                <div class="col-12">
+                <div class="col-md-12">
 
-                <a href="#">Главная</a>
-                <a href="#">О нас</a>
-                <a href="#">Доставка</a>
-                <a href="#">Оплата</a>
-                <a href="#">Наши видео обзоры</a>
-                <a href="#">Контакты</a>
+                <a href="/">Главная</a>
+                <a href="/page/about/">О нас</a>
+                <a href="/page/dostavka/">Доставка</a>
+                <a href="/page/pay/">Оплата</a>
+                <a href="/video_gallery/video_gallery/">Видео обзоры</a>
+                <a href="/page/contact/">Контакты</a>
                 </div>
 
 
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-md-3">
 {#            <h2>РЫБАЛКА И ТУРИЗМ</h2>#}
 {##}
 {##}
 {#            <div class="row footer_links2">#}
 {##}
-{#                <div class="col-6 footer_links">#}
+{#                <div class="col-md-6 footer_links">#}
 {#                <a href="#">Спининг</a>#}
 {#                <a href="#">Удилища</a>#}
 {#                <a href="#">Грузила</a>#}
@@ -196,7 +198,7 @@
 {#                <a href="#">Поплавок</a>#}
 {#                </div>#}
 {##}
-{#                <div class="col-6 footer_links">#}
+{#                <div class="col-md-6 footer_links">#}
 {#                    <a href="#">Спининг</a>#}
 {#                    <a href="#">Удилища</a>#}
 {#                    <a href="#">Грузила</a>#}
@@ -214,12 +216,12 @@
 {#            </div>#}
 
         </div>
-        <div class="col-3">
+        <div class="col-md-3">
 {#            <h2>СПОРТ</h2>#}
 {##}
 {#            <div class="row footer_links2">#}
 {##}
-{#                <div class="col-6 footer_links">#}
+{#                <div class="col-md-6 footer_links">#}
 {##}
 {#                <a href="#">Спининг</a>#}
 {#                <a href="#">Удилища</a>#}
@@ -235,7 +237,7 @@
 {##}
 {#                </div>#}
 {##}
-{#                <div class="col-6 footer_links">#}
+{#                <div class="col-md-6 footer_links">#}
 {##}
 {#                    <a href="#">Спининг</a>#}
 {#                    <a href="#">Удилища</a>#}
@@ -254,7 +256,7 @@
 {##}
 {#            </div>#}
         </div>
-        <div class="col-3 text-center">
+        <div class="col-md-3 text-center">
             <h2>КОНТАКТЫ</h2>
 
             <div class="adres_line">г. Воронеж<br>
@@ -269,7 +271,7 @@
 
     <div class="row footer-bottom">
 
-        <div class="col-12 text-center">
+        <div class="col-md-12 text-center">
 
             &copy; 2005-2018. Designed by <a href="http://tarc.ru">TARC</a>
 
