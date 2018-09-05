@@ -54,11 +54,16 @@ def orders_history(request):
     user_id = request.user.id
     user = User.objects.get(pk=user_id)
 
+    status_ch=Order.Status
+
+
+
     if request.user.is_authenticated() and request.user.id == user.id:
         order_list = Order.objects.filter(customer=user)
 
         return render(request, "user_profile/orders_history.html", {
             "order_list": order_list,
+            "status_ch": status_ch
         })
     else:
         raise PermissionDenied

@@ -45,8 +45,29 @@
                     </table>
                     <br>
                     <div class=""><b>Итого: {{ order.total_price }}</b></div>
-                    {% if order.address != "" %}<div><b>Адрес доставки:</b> {{ order.address }}</div>{% endif %}
+                    {% if order.address != "" %}<div><b>Адрес доставки:</b> {{ order.address }}</div>{% endif %}<br>
+                  <b>Статус  заказа:</b>
+                  {% for k,v in status_ch %}
+
+                      {% if order.status == k  %}
+                      {{ v }}
+                      {% endif %}
+                    {% endfor %}
+                     {% if order.status == 2 %}
+
+                    <a href="{% url 'shop:order-pay' order.pk  %}" class="btn btn-success">Оплатить заказ</a>
+
+                {% endif %}
+
+
                   </div>
+
+
+
+
+
+
+
                 </div>
             {% endfor %}
         </div>

@@ -131,6 +131,22 @@ class Status(models.Model):
 
 
 class Order(BaseOrder):
+
+    OFFER = 1
+    ONPAY = 2
+    PAYED = 3
+    SENDED = 4
+    ENDED = 5
+
+
+    Status = (
+        (OFFER, 'Оформлен'),
+        (ONPAY, 'Разрешена оплата'),
+        (PAYED, 'Оплачен'),
+        (SENDED, 'Отправлен'),
+        (ENDED, 'Завершен'),
+    )
+
     created_date = models.DateTimeField(_("Дата создания"), auto_now_add=True, editable=False)
     customer = models.ForeignKey(auth_user, verbose_name=u'Пользователь', blank=True, null=True)
     total_price = models.DecimalField(_("Общая стоимость"), max_digits=10, decimal_places=2, blank=True, null=True)
@@ -140,6 +156,7 @@ class Order(BaseOrder):
     phone_number = models.TextField(_("Телефон"),default='')
     type_diliver = models.TextField(_("Тип доставки"),default='')
     order_pay = models.TextField(_("Оплата"),default='')
+    status = models.IntegerField(choices=Status, default=OFFER)
 
 
 

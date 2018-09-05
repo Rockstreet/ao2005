@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="16e5dd33-dfcc-448f-8182-e01433e5b72b" name="ao2005" url="http://194.177.23.72">
+        <fileTransfer host="194.177.23.72" port="22" rootFolder="/sites/tutorial/project" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

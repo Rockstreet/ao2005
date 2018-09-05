@@ -77,6 +77,10 @@ class PostOrder(View):
         send_message = send_message + '<tr><td colspan="4" align="right"><b>Итого: </b>'+str(total)+' руб. </td></tr></table>'
         print(send_message)
 
+
+
+        send_mail('Заказ с сайта AO2005.ru', send_message, 'sendfromsite@ao2005.ru.ru', ['ivan.tolkachev@gmail.com'], fail_silently=False, auth_user='sendfromsite@ao2005.ru',auth_password='321sendfromsite321sendfromsite', connection=None, html_message=send_message)
+
         # send_mail('Заказ с сайта ао2005.ru', send_message, 'sendfromsite@caimanfishing.ru',
         #               ['ivan.tolkachev@gmail.com'], fail_silently=False,
         #               auth_user='sendfromsite@caimanfishing.ru', auth_password='JmsdlfsldiJHMlsadfmKJ', connection=None,
@@ -192,19 +196,23 @@ class DetailView(generic.DetailView):
 
         try:
             self.kwargs['brand']
-            context['item_list'] = current_category.item_set.filter(brand=self.kwargs['brand'])
+            context['item_list'] = current_category.item_set.filter(brand=self.kwargs['brand']).filter(in_stock__gte = 0)
             context['this_brand'] = int(self.kwargs['brand'])
 
         except:
-            context['item_list'] = current_category.item_set.all()
+            context['item_list'] = current_category.item_set.filter(in_stock__gte = 0)
 
 
         brand=[]
         for item in current_category.item_set.all():
-                 brand.append(item.brand)
-        brand_unic = [el for el, _ in groupby(brand)]
+
+                 if item.brand:
+                    brand.append(item.brand)
 
 
+        brand_unic = list(set(brand))
+
+        # print(brand_unic)
 
 
         context['brand'] = brand
@@ -268,6 +276,30 @@ class SearchListView(generic.ListView):
 class PayView(generic.TemplateView):
     template_name = 'shop/payonline.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(PayView, self).get_context_data(**kwargs)
+
+        order_id = context['order_id']
+
+
+
+
+
+        if (self.request.user.is_authenticated):
+
+            context['order'] = Order.objects.filter(pk=order_id,customer=self.request.user.pk).first()
+
+        else:
+            context['order'] = Order.objects.filter(pk=order_id).filter(customer=None).first()
+
+
+        return context
+
+
+
+
+
+
 
 
 
@@ -330,3 +362,13 @@ def capi(request):
 
     return HttpResponse(answer)
 
+
+def orderseccespay(request):
+    if request.method == 'GET':
+        order_id = request.GET['order_id']
+
+    order=Order.objects.filter(pk=order_id).first()
+    order.status = 3
+    order.save()
+
+    return HttpResponse(order_id)

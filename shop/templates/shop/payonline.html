@@ -14,11 +14,80 @@
 
 {% block content %}
 
+{% if order.status == 2 %}
+    <h1>Оплата заказа № {{ order_id }}</h1>
 
-    <h1>Оплата заказа № XXX</h1>
+    <b>Дата заказа:</b> {{ order.created_date }}<br>
+    <b>Сумма заказа:</b>  {{ order.total_price }} руб.<br>
+
+    <center>Товары заказа</center>
+
+    <table class="table table-bordered">
+                      {% for order_item in order.orderitem_set.all %}
+                                <tr>
+                                    <td width="60%"><a href="{% url 'shop:product' order_item.item.category.first.slug order_item.item.slug %}">{{ order_item }}</a></td>
+                                    <td width="20%">{{ order_item.cols }} шт.</td>
+                                    <td width="20%">{{ order_item.price }}</td>
+                                </tr>
+                      {% endfor %}
+                    </table>
+    <center>
+
+<script src="https://3dsec.sberbank.ru/demopayment/docsite/assets/js/ipay-modal.js"></script>
+
+<script>
+
+    function showSuccessfulPurchase(order)
+    {
+        alert('Заказ №'+order+' успешно оплачен');
+
+        console.log(order);
+
+        $('#pay_botton').hide();
+        $('#success-text').show();
+
+        $.get('{% url 'shop:order-secces-pay' %}/', {order_id: order.orderNumber}, function (data) {
+
+                          console.log('Оплачено'+data)
+
+                      });
+
+    }
+
+    function showFailurefulPurchase(order)
+    {
+        alert('При оплате заказа №'+order+' произошла ошибка');
+    }
 
 
+</script>
+
+<a id="pay_botton" onclick="ipayCheckout({
+amount:{{ order.total_price|stringformat:"f" }},
+currency:'RUB',
+order_number:'{{ order_id }}',
+description: 'Оплата заказа № {{ order_id }} в магазине ao2005.ru'},
+function(order) { showSuccessfulPurchase(order) },
+function(order) { showFailurefulPurchase(order) })"
+class="btn btn-xs btn-outline btn-primary">Оплатить заказ <i class="fa fa-long-arrow-right"></i>
+</a>
+
+    <span id="success-text" class="text-success" style="display: none;">Заказ успешно оплачен</span>
+    <span id="error-text" class="text-error" style="display: none;">При оплате заказа произошла ошибка</span>
+
+    </center>
+
+
+
+
+    {% else %}
+
+    <h1> Заказ не может быть оплачен</h1>
+    <h4>Возможны следующие проблемы:</h4>
+    <li>Администратор пока не разрешил оплату этого заказа</li>
+    <li>Заказ может быть оплачен только тем пользователем от которого был сделан</li>
+
+    {% endif %}
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
-
 {% endblock %}

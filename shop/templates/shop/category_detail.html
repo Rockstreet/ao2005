@@ -129,6 +129,9 @@
             <table class="table">
 
                 {% for category_obj in item_list %}
+
+                    {% if category_obj.in_stock > 0 %}
+
                     <tr>
                         <td class="text-left" width="150">
 
@@ -201,6 +204,8 @@
                         </td>
 
                     </tr>
+
+                    {%  endif %}
 
 
                     {% comment %}

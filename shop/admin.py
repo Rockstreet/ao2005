@@ -48,22 +48,22 @@ admin.site.register(Category, CategoryAdmin)
 
 class ItemInLineOrder(admin.TabularInline):
     model = OrderItem
-    readonly_fields = ('item','cols','price')
+    #readonly_fields = ('item','cols','price')
     exclude = ('title',)
 
 
-    def has_add_permission(self, request):
-        return False
-
-    def has_delete_permission(self, request, obj=None):
-        return False
+    # def has_add_permission(self, request):
+    #     return False
+    #
+    # def has_delete_permission(self, request, obj=None):
+    #     return False
 
 
 
 class OrdersAdmin(admin.ModelAdmin):
-    list_display = ('id','created_date','total_price', 'type_diliver', )
+    list_display = ('id','created_date','total_price', 'type_diliver','status' )
 
-    readonly_fields = ('total_price','type_diliver','email','address','phone_number','order_pay','name','customer')
+    readonly_fields = ('type_diliver','email','address','phone_number','order_pay','name','customer')
 
     inlines = [
         ItemInLineOrder,

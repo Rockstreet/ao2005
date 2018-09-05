@@ -33,9 +33,9 @@ ALLOWED_HOSTS = ['127.0.0.1','194.177.23.72', 'ao2005.ru', 'www.ao2005.ru']
 
 EMAIL_HOST = 'smtp.yandex.ru'
 
-EMAIL_HOST_USER = 'sendfromsite@caimanfishing.ru'
+EMAIL_HOST_USER = 'sendfromsite@ao2005.ru'
 
-EMAIL_HOST_PASSWORD = '24sendfromsite24'
+# EMAIL_HOST_PASSWORD = '24sendfromsite24'
 
 
 

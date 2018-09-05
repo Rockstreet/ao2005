@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^shop/(?P<slug>[-\w]+)/brand/(?P<brand>[0-9]*)/$', views.DetailView.as_view(), name='detail_filter'),
     url(r'^shop/(?P<slug_category>[-\w]+)/product/(?P<slug>[-\w]+)/$', views.ProductView.as_view(), name='product'),
     url(r'^shop/search$', views.SearchListView.as_view(), name='list_search'),
-    url(r'^shop/order-pay/(?P<order_id>[0-9]*)/$', views.PayView.as_view(), name='order'),
+    url(r'^shop/order-pay/(?P<order_id>[0-9]*)/$', views.PayView.as_view(), name='order-pay'),
+    url(r'^shop/order-success-pay/', views.orderseccespay, name='order-secces-pay'),
 ]

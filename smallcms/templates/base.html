@@ -11,9 +11,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/style.css" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/lightbox/ekko-lightbox.css">
+    <link href="https://3dsec.sberbank.ru/demopayment/docsite/assets/css/modal.css" rel="stylesheet">
+    <script src="https://3dsec.sberbank.ru/demopayment/docsite/assets/js/ipay.js"></script>
 
-    <title>Активный отдых</title>
+    <title>{% block title %}{% endblock title %} - Активный отдых</title>
 
+    <meta name="yandex-verification" content="264bd0e584a73622" />
+
+
+    <script type="text/javascript">
+var ipay = new IPAY({
+api_token : "ueccqnlk46oudtm79chgeed7qc"
+});
+</script>
 
 
 </head>
@@ -262,7 +272,7 @@
             <div class="adres_line">г. Воронеж<br>
                 ул. Героев Сибиряков, 67</div>
 
-            <div class="phone_line">(473) 220 97 65</div>
+            <div class="phone_line">(473) 220 96 65</div>
 
             <div class="link_line"><a href="http://ao2005.ru">ao2005.ru</a></div>
 
