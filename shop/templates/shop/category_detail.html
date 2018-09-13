@@ -156,7 +156,7 @@
                            <br>
                             <input type="hidden" class="item-variation-select-cat" value="{{ category_obj.item_variation_set.first.pk }}">
                             {{ category_obj.content_small }}
-                            {% if user.username == 'admin' or user.username == 'tarc'  %} <br><a href="/admin/shop/item/{{ category_obj.pk }}/change/">Редактировать в системе управления {{  user.is_admin }}</a> {% endif %}
+                            {% if user.username == 'ao2005' or user.username == 'tarc'  %} <br><a href="/admin/shop/item/{{ category_obj.pk }}/change/">Редактировать в системе управления {{  user.is_admin }}</a> {% endif %}
                         </td>
 
 

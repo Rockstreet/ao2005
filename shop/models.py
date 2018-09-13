@@ -32,9 +32,9 @@ class BaseShop(models.Model):
     created_date = models.DateTimeField(_("Дата создания"), auto_now_add=True, editable=False)
     edited_date = models.DateTimeField(_("Дата редактирования"), auto_now=True, editable=False, null=True)
 
-    title = models.TextField(_("Название"), max_length=10000, default='')
-    meta_description = models.CharField(_("Description"), max_length=1000, blank=True)
-    meta_keywords = models.CharField(_("Keywords"), max_length=1000, blank=True)
+    title = models.TextField(_("Название"), default='')
+    meta_description = models.TextField(_("Description"), blank=True)
+    meta_keywords = models.TextField(_("Keywords"), blank=True)
     slug = models.SlugField(_("Имя для url"), unique=True, blank=True, help_text=_("Только английские буквы, цифры и знаки минус и подчеркивание."))
     tags = TaggableManager(_("Тэги"), blank=True),
     file = ImageField(_("Фото для категории 250X250"), upload_to='category', blank=True)

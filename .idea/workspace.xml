@@ -1,31 +1,206 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/shop/views.py" line="92" mnemonic="1" />
     <bookmark url="file://$PROJECT_DIR$/shop/views.py" line="45" mnemonic="2" />
     <bookmark url="file://$PROJECT_DIR$/shop/admin.py" line="49" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/shop/templates/shop/category_detail.html" line="94" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45c064e0-af61-44ff-8034-64c2fd55b48a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/templates/shop/payonline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/templates/shop/test_api.html" afterDir="false" />
+    <list default="true" id="45c064e0-af61-44ff-8034-64c2fd55b48a" name="Default" comment="1.Доделано оформление заказа&#10;2. Заказы добавлены для просмотра в админку&#10;3. Профиль пользователя адаптирован&#10;4. История заказов адаптированна&#10;5. Выход на оплату онлайн сделан">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d3f5a49-10fa-40e6-b039-973bb04c9055.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d3f5a49-10fa-40e6-b039-973bb04c9055.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d3f5a49-10fa-40e6-b039-973bb04c9055/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d3f5a49-10fa-40e6-b039-973bb04c9055/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/templates/shop/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/shop/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/templatetags/cms_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templatetags/cms_tags.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/shop/category_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/shop/category_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallcms/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/smallcms/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallcms/regbackend.py" beforeDir="false" afterPath="$PROJECT_DIR$/smallcms/regbackend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallcms/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/smallcms/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallcms/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/smallcms/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallcms/templates/mainpage_content.html" beforeDir="false" afterPath="$PROJECT_DIR$/smallcms/templates/mainpage_content.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile/templates/user_profile/edit_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_profile/templates/user_profile/edit_user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile/templates/user_profile/orders_history.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_profile/templates/user_profile/orders_history.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_profile/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_gallery/templates/video_gallery/video_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/video_gallery/templates/video_gallery/video_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/fonts/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/fonts/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/accessibility.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/accessibility.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/css/content.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/css/content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/css/word.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/css/word.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/custom_formats.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/custom_formats.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/full.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/full.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/lists/image_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/lists/image_list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/lists/link_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/lists/link_list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/lists/media_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/lists/media_list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/lists/template_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/lists/template_list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/simple.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/simple.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/skins.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/skins.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/templates/layout1.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/templates/layout1.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/templates/snippet1.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/templates/snippet1.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/examples/word.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/examples/word.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/license.txt" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/license.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advhr/css/advhr.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advhr/css/advhr.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advhr/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advhr/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advhr/js/rule.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advhr/js/rule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advhr/rule.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advhr/rule.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage/css/advimage.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage/css/advimage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage/image.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage/image.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage/js/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage/js/image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage_orig/css/advimage.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage_orig/css/advimage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage_orig/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage_orig/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage_orig/image.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage_orig/image.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage_orig/js/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advimage_orig/js/image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink/css/advlink.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink/css/advlink.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink/js/advlink.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink/js/advlink.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink/link.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink/link.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink_orig/css/advlink.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink_orig/css/advlink.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink_orig/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink_orig/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink_orig/js/advlink.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink_orig/js/advlink.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink_orig/link.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlink_orig/link.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlist/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/advlist/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/autosave/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/autosave/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/bbcode/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/bbcode/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/contextmenu/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/contextmenu/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/directionality/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/directionality/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/emotions/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/emotions/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/emotions/emotions.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/emotions/emotions.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/emotions/js/emotions.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/emotions/js/emotions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/example/dialog.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/example/dialog.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/example/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/example/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/example/js/dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/example/js/dialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/example/langs/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/example/langs/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/example/langs/en_dlg.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/example/langs/en_dlg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullpage/css/fullpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullpage/css/fullpage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullpage/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullpage/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullpage/fullpage.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullpage/fullpage.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullpage/js/fullpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullpage/js/fullpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullscreen/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullscreen/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullscreen/fullscreen.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/fullscreen/fullscreen.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli/langs/de.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli/langs/de.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli/langs/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli/langs/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli/langs/fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli/langs/fr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli/langs/pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli/langs/pl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli_contextmenu/langs/de.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli_contextmenu/langs/de.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli_contextmenu/langs/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli_contextmenu/langs/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli_contextmenu/langs/fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli_contextmenu/langs/fr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli_contextmenu/langs/pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/grappelli_contextmenu/langs/pl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/iespell/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/iespell/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/inlinepopups/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/inlinepopups/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/inlinepopups/template.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/inlinepopups/template.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/insertdatetime/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/insertdatetime/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/layer/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/layer/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/legacyoutput/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/legacyoutput/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media/css/media.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media/css/media.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media/js/embed.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media/js/embed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media/js/media.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media/js/media.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media/media.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media/media.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media_orig/css/media.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media_orig/css/media.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media_orig/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media_orig/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media_orig/js/embed.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media_orig/js/embed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media_orig/js/media.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media_orig/js/media.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media_orig/media.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/media_orig/media.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/nonbreaking/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/nonbreaking/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/noneditable/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/noneditable/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/pagebreak/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/pagebreak/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste/js/pastetext.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste/js/pastetext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste/js/pasteword.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste/js/pasteword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste/pastetext.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste/pastetext.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste/pasteword.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste/pasteword.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste_orig/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste_orig/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste_orig/js/pastetext.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste_orig/js/pastetext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste_orig/js/pasteword.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste_orig/js/pasteword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste_orig/pastetext.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste_orig/pastetext.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste_orig/pasteword.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/paste_orig/pasteword.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/preview/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/preview/example.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/preview/jscripts/embed.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/preview/jscripts/embed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/preview/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/preview/preview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/print/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/print/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/save/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/save/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace/css/searchreplace.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace/css/searchreplace.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace/js/searchreplace.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace/js/searchreplace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace/searchreplace.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace/searchreplace.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace_orig/css/searchreplace.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace_orig/css/searchreplace.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace_orig/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace_orig/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace_orig/js/searchreplace.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace_orig/js/searchreplace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace_orig/searchreplace.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/searchreplace_orig/searchreplace.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/spellchecker/css/content.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/spellchecker/css/content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/spellchecker/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/spellchecker/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/style/css/props.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/style/css/props.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/style/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/style/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/style/js/props.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/style/js/props.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/cell.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/cell.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/css/cell.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/css/cell.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/css/row.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/css/row.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/css/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/css/table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/js/cell.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/js/cell.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/js/merge_cells.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/js/merge_cells.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/js/row.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/js/row.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/js/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/js/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/merge_cells.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/merge_cells.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/row.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/row.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/table.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/table/table.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/blank.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/blank.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/css/template.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/css/template.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/js/template.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/js/template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/template.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/template.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template_orig/blank.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template_orig/blank.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template_orig/css/template.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template_orig/css/template.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template_orig/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template_orig/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template_orig/js/template.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template_orig/js/template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template_orig/template.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template_orig/template.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/visualblocks/css/visualblocks.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/visualblocks/css/visualblocks.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/visualblocks/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/visualblocks/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/visualchars/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/visualchars/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/wordcount/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/wordcount/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/abbr.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/abbr.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/acronym.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/acronym.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/attributes.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/attributes.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/cite.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/cite.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/css/attributes.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/css/attributes.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/css/popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/css/popup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/del.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/del.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/editor_plugin_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/editor_plugin_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/ins.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/ins.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/abbr.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/abbr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/acronym.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/acronym.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/attributes.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/attributes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/cite.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/cite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/del.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/del.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/element_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/element_common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/ins.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/js/ins.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/about.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/about.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/anchor.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/anchor.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/charmap.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/charmap.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/color_picker.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/color_picker.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/editor_template_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/editor_template_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/image.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/image.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/about.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/anchor.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/anchor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/charmap.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/charmap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/link.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/link.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/source_editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/js/source_editor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/shortcuts.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/shortcuts.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/default/content.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/default/content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/default/dialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/default/dialog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/default/ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/default/ui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/highcontrast/content.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/highcontrast/content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/highcontrast/dialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/highcontrast/dialog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/highcontrast/ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/highcontrast/ui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/o2k7/content.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/o2k7/content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/o2k7/dialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/o2k7/dialog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/o2k7/ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/o2k7/ui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/o2k7/ui_black.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/o2k7/ui_black.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/o2k7/ui_silver.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/skins/o2k7/ui_silver.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/source_editor.htm" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/source_editor.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/simple/editor_template_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/simple/editor_template_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/simple/skins/default/content.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/simple/skins/default/content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/simple/skins/default/ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/simple/skins/default/ui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/simple/skins/o2k7/content.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/simple/skins/o2k7/content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/simple/skins/o2k7/ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/themes/simple/skins/o2k7/ui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/tiny_mce_src.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/tiny_mce_src.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/utils/editable_selects.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/utils/editable_selects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/utils/form_utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/utils/form_utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/utils/mctabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/utils/mctabs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/utils/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/grappelli/tinymce/jscripts/tiny_mce/utils/validate.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +267,7 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="shop_category: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
+        <item name="auth_group: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -102,7 +277,7 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="shop_item_category: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
+        <item name="shop_item: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
       </path>
     </expand>
     <select />
@@ -110,42 +285,86 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/shop/models.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="187">
+                    <caret line="37" column="27" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="27" />
+                    <folding>
+                      <element signature="e#0#28#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1515123969">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.37" value="1" />
-          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.38" value="2" />
+          <entry key="project.open.time.54" value="2" />
+          <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.58" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="10" />
-          <entry key="py" value="14" />
+          <entry key="html" value="31" />
+          <entry key="py" value="43" />
+          <entry key="shop_category" value="1" />
+          <entry key="shop_item" value="1" />
+          <entry key="shop_order" value="1" />
+          <entry key="sql" value="2" />
+          <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="10" />
-          <entry key="Python" value="14" />
+          <entry key="Database Element" value="3" />
+          <entry key="HTML" value="31" />
+          <entry key="Python" value="43" />
+          <entry key="Scratch" value="2" />
+          <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="867" />
-          <entry key="py" value="1369" />
+          <entry key="html" value="2201" />
+          <entry key="py" value="2264" />
+          <entry key="sql" value="38" />
+          <entry key="txt" value="189" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="867" />
-          <entry key="Python" value="1369" />
+          <entry key="HTML" value="2201" />
+          <entry key="PLAIN_TEXT" value="189" />
+          <entry key="Python" value="2264" />
+          <entry key="SQL" value="38" />
         </counts>
       </usages-collector>
     </session>
@@ -156,69 +375,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="95" column="17" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-                <marker date="1533648963795" expanded="true" signature="9117:9165" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-                <marker date="1533650432557" expanded="true" signature="1530:1772" ph="..." />
-                <marker date="1533650432557" expanded="true" signature="1530:1818" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop/templates/shop/cart.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user_profile/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user_profile/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
-              <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+            <state relative-caret-position="697">
+              <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
               <folding>
                 <element signature="e#0#91#0" expanded="true" />
               </folding>
@@ -227,26 +387,86 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user_profile/templates/user_profile/edit_user.html">
+        <entry file="file://$PROJECT_DIR$/shop/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+            <state relative-caret-position="563">
+              <caret line="339" column="45" selection-start-line="339" selection-start-column="45" selection-end-line="339" selection-end-column="45" />
               <folding>
-                <element signature="e#440#468#0#HTML" expanded="true" />
-                <element signature="e#1407#1428#0#HTML" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
+                <marker date="1536593434377" expanded="true" signature="9133:9628" ph="..." />
+                <marker date="1536593434377" expanded="true" signature="11465:11466" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/user_profile/templates/user_profile/orders_history.html">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+            <state relative-caret-position="85">
+              <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="25" />
               <folding>
-                <element signature="e#1461#1514#0#HTML" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/smallcms/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shop/templates/shop/category_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="609">
+              <caret line="158" column="58" selection-start-line="158" selection-start-column="58" selection-end-line="158" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/smallcms/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="952">
+              <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+                <marker date="1536161505626" expanded="true" signature="1544:1780" ph="..." />
+                <marker date="1536161505626" expanded="true" signature="1544:1826" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop/templates/shop/cart.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1666">
+              <caret line="98" column="24" selection-start-line="98" selection-start-column="24" selection-end-line="98" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8d3f5a49-10fa-40e6-b039-973bb04c9055/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="89" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -255,10 +475,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Катало</find>
-      <find>thu</find>
-      <find>content_small</find>
-      <find>Item_image</find>
       <find>Добавить все</find>
       <find>партия</find>
       <find>Цена</find>
@@ -276,7 +492,6 @@
       <find>if</find>
       <find>зменить</find>
       <find>thumbnail</find>
-      <find>url</find>
       <find>Ваша корзина пуста</find>
       <find>video</find>
       <find>Вид</find>
@@ -284,7 +499,12 @@
       <find>foto</find>
       <find>col-</find>
       <find>status</find>
+      <find>card</find>
       <find>phone</find>
+      <find>url</find>
+      <find>user</find>
+      <find>user.is_authenticated</find>
+      <find>CAIMAN</find>
     </findStrings>
     <replaceStrings>
       <replace>col-md-</replace>
@@ -314,7 +534,6 @@
         <option value="$PROJECT_DIR$/shop/templates/shop/category_list.html" />
         <option value="$PROJECT_DIR$/page/context_processors.py" />
         <option value="$PROJECT_DIR$/news/templates/news/news_detail.html" />
-        <option value="$PROJECT_DIR$/shop/templates/shop/category_detail.html" />
         <option value="$PROJECT_DIR$/smallcms/context_processors.py" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/smallcms/templates/action.html" />
@@ -328,20 +547,22 @@
         <option value="$PROJECT_DIR$/smallcms/forms.py" />
         <option value="$PROJECT_DIR$/shop/templatetags/cms_tags.py" />
         <option value="$PROJECT_DIR$/smallcms/regbackend.py" />
-        <option value="$PROJECT_DIR$/smallcms/settings.py" />
         <option value="$PROJECT_DIR$/shop/templates/shop/test_api.html" />
-        <option value="$PROJECT_DIR$/smallcms/templates/base.html" />
+        <option value="$PROJECT_DIR$/shop/migrations/0024_auto_20180807_1621.py" />
+        <option value="$PROJECT_DIR$/user_profile/templates/user_profile/edit_user.html" />
+        <option value="$PROJECT_DIR$/shop/templates/shop/cart.html" />
         <option value="$PROJECT_DIR$/smallcms/templates/mainpage_content.html" />
+        <option value="$PROJECT_DIR$/user_profile/templates/user_profile/orders_history.html" />
+        <option value="$PROJECT_DIR$/user_profile/views.py" />
         <option value="$PROJECT_DIR$/shop/urls.py" />
         <option value="$PROJECT_DIR$/shop/templates/shop/payonline.html" />
-        <option value="$PROJECT_DIR$/shop/migrations/0024_auto_20180807_1621.py" />
-        <option value="$PROJECT_DIR$/shop/views.py" />
+        <option value="$PROJECT_DIR$/smallcms/templates/base.html" />
+        <option value="$PROJECT_DIR$/smallcms/settings.py" />
         <option value="$PROJECT_DIR$/shop/admin.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/8d3f5a49-10fa-40e6-b039-973bb04c9055/console.sql" />
         <option value="$PROJECT_DIR$/shop/models.py" />
-        <option value="$PROJECT_DIR$/shop/templates/shop/cart.html" />
-        <option value="$PROJECT_DIR$/user_profile/views.py" />
-        <option value="$PROJECT_DIR$/user_profile/templates/user_profile/edit_user.html" />
-        <option value="$PROJECT_DIR$/user_profile/templates/user_profile/orders_history.html" />
+        <option value="$PROJECT_DIR$/shop/views.py" />
+        <option value="$PROJECT_DIR$/shop/templates/shop/category_detail.html" />
       </list>
     </option>
   </component>
@@ -390,18 +611,7 @@
             <path>
               <item name="ao2005" type="b2602c69:ProjectViewProjectNode" />
               <item name="ao2005" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ao2005" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ao2005" type="462c0819:PsiDirectoryNode" />
               <item name="shop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ao2005" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ao2005" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ao2005" type="b2602c69:ProjectViewProjectNode" />
@@ -415,12 +625,6 @@
               <item name="shop" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="shop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ao2005" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ao2005" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
-              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ao2005" type="b2602c69:ProjectViewProjectNode" />
@@ -432,17 +636,6 @@
               <item name="ao2005" type="462c0819:PsiDirectoryNode" />
               <item name="smallcms" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ao2005" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ao2005" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ao2005" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ao2005" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ao2005" type="b2602c69:ProjectViewProjectNode" />
@@ -471,7 +664,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RunDashboard">
@@ -522,13 +715,27 @@
       <option name="presentableId" value="Default" />
       <updated>1528893692355</updated>
     </task>
+    <task id="LOCAL-00001" summary="1.Доделано оформление заказа&#10;2. Заказы добавлены для просмотра в админку&#10;3. Профиль пользователя адаптирован&#10;4. История заказов адаптированна&#10;5. Выход на оплату онлайн сделан">
+      <created>1533654187276</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1533654187276</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1.Доделано оформление заказа&#10;2. Заказы добавлены для просмотра в админку&#10;3. Профиль пользователя адаптирован&#10;4. История заказов адаптированна&#10;5. Выход на оплату онлайн сделан">
+      <created>1536161675282</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1536161675282</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="0" width="1922" height="1041" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49726176" visible="true" weight="0.26852846" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49726176" visible="true" weight="0.17239527" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50273824" side_tool="true" weight="0.21354167" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -544,14 +751,15 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Python Console" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" order="13" weight="0.25520262" />
-      <window_info anchor="bottom" id="File Transfer" order="14" visible="true" weight="0.3295838" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.25421822" />
+      <window_info anchor="bottom" id="File Transfer" order="14" visible="true" weight="0.20247468" />
+      <window_info anchor="bottom" id="manage.py@ao2005" order="15" visible="true" weight="0.3295838" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Data View" order="4" />
-      <window_info anchor="right" id="Database" order="5" weight="0.30208334" />
+      <window_info anchor="right" id="Database" order="5" weight="0.301826" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,62 +768,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.Доделано оформление заказа&#10;2. Заказы добавлены для просмотра в админку&#10;3. Профиль пользователя адаптирован&#10;4. История заказов адаптированна&#10;5. Выход на оплату онлайн сделан" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.Доделано оформление заказа&#10;2. Заказы добавлены для просмотра в админку&#10;3. Профиль пользователя адаптирован&#10;4. История заказов адаптированна&#10;5. Выход на оплату онлайн сделан" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/news/templates/news/news_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smallcms/context_processors.py" />
-    <entry file="file://$PROJECT_DIR$/page/context_processors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2856">
-          <caret line="168" selection-start-line="168" selection-end-line="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/shop/category_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="150" column="41" selection-start-line="150" selection-start-column="41" selection-end-line="150" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smallcms/templates/action.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/video_gallery/admin.py" />
-    <entry file="file://$PROJECT_DIR$/video_gallery/views.py" />
     <entry file="file://$PROJECT_DIR$/smallcms/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -654,41 +811,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/context_processors.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/shop/templates/registration/registration_form.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8d3f5a49-10fa-40e6-b039-973bb04c9055/console.sql" />
-    <entry file="das://8d3f5a49-10fa-40e6-b039-973bb04c9055/database/postgres/schema/public/table/shop_item">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://8d3f5a49-10fa-40e6-b039-973bb04c9055/database/postgres/schema/public/table/shop_item_category">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://8d3f5a49-10fa-40e6-b039-973bb04c9055/database/postgres/schema/public/table/shop_category">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://8d3f5a49-10fa-40e6-b039-973bb04c9055/database/postgres/schema/public/table/shop_item_category" />
     <entry file="file://$PROJECT_DIR$/page/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -711,34 +837,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/smallcms/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4641">
-          <caret line="273" column="27" selection-start-line="273" selection-start-column="27" selection-end-line="273" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smallcms/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3060">
-          <caret line="180" selection-start-line="180" selection-end-line="180" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/page/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3128">
           <caret line="200" column="35" selection-start-line="200" selection-start-column="35" selection-end-line="200" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smallcms/templates/carousel.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smallcms/templates/mainpage_content.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="70" column="27" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -749,46 +851,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/shop/cart_order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="14" lean-forward="true" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="64" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/shop/payonline.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shop/migrations/0024_auto_20180807_1621.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <marker date="1533650432557" expanded="true" signature="1530:1772" ph="..." />
-            <marker date="1533650432557" expanded="true" signature="1530:1818" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -799,71 +865,197 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="95" column="17" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <marker date="1533648963795" expanded="true" signature="9117:9165" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/shop/cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user_profile/forms.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_profile/templates/user_profile/edit_user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="476">
+          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/models.py">
+    <entry file="file://$PROJECT_DIR$/static/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/context_processors.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallcms/templates/base_exml.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallcms/templates/c.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallcms/templates/carousel.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallcms/templates/menu.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallcms/templates/base_caim.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/templates/shop/category_list.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallcms/templates/mainpage_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/templates/shop/cart_order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="14" selection-end-line="29" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_profile/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="72" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://8d3f5a49-10fa-40e6-b039-973bb04c9055/database/postgres/schema/public/table/shop_order" />
+    <entry file="file://$PROJECT_DIR$/shop/templates/shop/payonline.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_profile/templates/user_profile/orders_history.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://8d3f5a49-10fa-40e6-b039-973bb04c9055/database/postgres/schema/public/table/shop_item">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://8d3f5a49-10fa-40e6-b039-973bb04c9055/database/postgres/schema/public/table/shop_category">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/user_profile/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+        <state relative-caret-position="697">
+          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
           <folding>
             <element signature="e#0#91#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user_profile/templates/user_profile/edit_user.html">
+    <entry file="file://$PROJECT_DIR$/shop/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        <state relative-caret-position="85">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="25" />
           <folding>
-            <element signature="e#440#468#0#HTML" expanded="true" />
-            <element signature="e#1407#1428#0#HTML" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user_profile/templates/user_profile/orders_history.html">
+    <entry file="file://$PROJECT_DIR$/smallcms/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+        <state relative-caret-position="306">
+          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallcms/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
           <folding>
-            <element signature="e#1461#1514#0#HTML" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1536161505626" expanded="true" signature="1544:1780" ph="..." />
+            <marker date="1536161505626" expanded="true" signature="1544:1826" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/templates/shop/cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="98" column="24" selection-start-line="98" selection-start-column="24" selection-end-line="98" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8d3f5a49-10fa-40e6-b039-973bb04c9055/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="89" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="339" column="45" selection-start-line="339" selection-start-column="45" selection-end-line="339" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1536593434377" expanded="true" signature="9133:9628" ph="..." />
+            <marker date="1536593434377" expanded="true" signature="11465:11466" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/templates/shop/category_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="158" column="58" selection-start-line="158" selection-start-column="58" selection-end-line="158" selection-end-column="58" />
         </state>
       </provider>
     </entry>

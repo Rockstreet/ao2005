@@ -55,9 +55,9 @@ class PostOrder(View):
 
 
         if(request.user.is_authenticated):
-            send_message = '<h2>Заказ с сайта CAIMAN от пользователя '+user_name+' </h2>'
+            send_message = '<h2>Заказ с сайта Активныый отдых от пользователя '+user_name+' </h2>'
         else:
-            send_message = '<h2>Анонимный заказ с сайта CAIMAN </h2>'
+            send_message = '<h2>Анонимный заказ с сайта Активныый отдых </h2>'
 
         send_message = send_message + '<b>Имя:</b> ' + name + '<br><br>'
         send_message = send_message + '<b>Телефон:</b> ' + phone + '<br><br>'
@@ -79,15 +79,9 @@ class PostOrder(View):
 
 
 
-        send_mail('Заказ с сайта AO2005.ru', send_message, 'sendfromsite@ao2005.ru.ru', ['ivan.tolkachev@gmail.com'], fail_silently=False, auth_user='sendfromsite@ao2005.ru',auth_password='321sendfromsite321sendfromsite', connection=None, html_message=send_message)
+        send_mail('Заказ с сайта AO2005.ru', send_message, 'sendfromsite@ao2005.ru', ['ivan.tolkachev@gmail.com','nikafish3@mail.ru'], fail_silently=False, auth_user='sendfromsite@ao2005.ru',auth_password='321sendfromsite321sendfromsite', connection=None, html_message=send_message)
 
-        # send_mail('Заказ с сайта ао2005.ru', send_message, 'sendfromsite@caimanfishing.ru',
-        #               ['ivan.tolkachev@gmail.com'], fail_silently=False,
-        #               auth_user='sendfromsite@caimanfishing.ru', auth_password='JmsdlfsldiJHMlsadfmKJ', connection=None,
-        #               html_message=send_message)
-
-
-        # Select default status for the order
+       
 
 
         # create order in the database history
@@ -337,7 +331,7 @@ def capi(request):
 
                 slug=slugify(''.join(alphabet.get(w, w) for w in title.lower()))+'-'+id1c;
 
-                this_object = Item(title=title, meta_description=title,meta_keywords=title,slug=slug,id1c=id1c,price_1=price_1,in_stock=in_stock)
+                this_object = Item(title=title, meta_description=title,meta_keywords=title,slug=slug[:49],id1c=id1c,price_1=price_1,in_stock=in_stock)
 
                 this_object.save()
 
