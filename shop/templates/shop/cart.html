@@ -18,19 +18,19 @@
     {% if cart.item_count > 0 %}
 
 
-  <table class="cart" width="100%" cellpadding="15" cellspacing="15">
-    <thead>
-      <tr>
-        <th>Изображение</th>
-        <th>Продукт</th>
-        <th>Количество</th>
-        <th>Цена</th>
-        <th>Стоимость</th>
-        <th>Удалить</th>
-      </tr>
-    </thead>
+{#  <div  class="cart" width="100%" cellpadding="15" cellspacing="15">#}
+{#    <thead>#}
+      <div class="row" >
+        <div class="col-md-2 text-center"><b>Изображение</b></div>
+        <div class="col-md-5 text-center"><b>Продукт</b></div>
+        <div class="col-md-2 text-center"><b>Количество</b></div>
+        <div class="col-md-1 text-center"><b>Цена</b></div>
+        <div class="col-md-1 text-center"><b>Стоимость</b></div>
+        <div class="col-md-1 text-center"><b>Удалить</b></div>
+      </div>
+{#    </thead>#}
 
-      <tbody>
+{#      <tbody>#}
 
 
 
@@ -39,8 +39,8 @@
 
 
 
-          <tr>
-            <td>
+          <div class="row mt-3">
+            <div class="col-md-2 text-center">
 
                 <div class="thumbnail_container">
 
@@ -54,9 +54,9 @@
                {% endif %}
                 </div>
 
-            </td>
-              <td><a href="{% url "shop:product" product.category.first.slug product.slug %}"> {{ product.title }}</a></td>
-            <td width="150">
+            </div>
+              <div class="col-md-5"><a href="{% url "shop:product" product.category.first.slug product.slug %}"> {{ product.title }}</a></div>
+            <div class="col-md-2">
                 <div class="input-group mb-3" >
                   <input type="number" class="form-control cart-quantity input-number"  value="{{ item.quantity }}" min="0" max="999">
                   <span class="input-group-append">
@@ -65,27 +65,31 @@
                     </button>
                   </span>
                 </div>
-            </td>
-            <td class="num">
+            </div>
+            <div class="col-md-1 num">
 
 
 
                 {{ product.price_1 }}
 
 
-                руб.</td>
+                руб.</div>
 
           {% if user and not user.is_anonymous  %}
-            <td class="num">{% mult product.price_1 item.quantity %} руб.</td>
+            <div  class="col-md-1 num">{% mult product.price_1 item.quantity %} руб.</div>
           {% else %}
-          <td class="num">{% mult product.price_1 item.quantity %} руб.</td>
+          <div class="col-md-1 num">{% mult product.price_1 item.quantity %} руб.</div>
           {% endif %}
-            <td align="center">
+            <div class="col-md-1" align="center">
                 <button title="Удалить" class="btn btn-danger" onclick="cart.remove('{{ product.pk }}')"><span class="oi oi-trash"></span></button>
-            </td>
-          </tr>
+            </div>
 
+
+            </div>
+            <hr>
         {% endwith %}
+
+
       {% endfor %}
 
 
@@ -93,8 +97,8 @@
 
 
 
-    </tbody>
-    </table>
+
+
 
 <div class="row" style="margin: 20px 0px 20px 0px">
 
@@ -131,13 +135,15 @@
    </tr>
 
 
-
+<!--
    <tr>
        <td><b>Оплатить онлайн:</b></td><td> <input type="radio" name="payonline" disabled="disabled" value="True"></td>
    </tr>
+  -->
 <tr>
     <td><b>Оплата при получении:</b></td><td> <input type="radio" name="payonline" value="False" checked></td>
    </tr>
+
        <tr>
            <td><b>Способ доставки</b></td><td></td>
        </tr>

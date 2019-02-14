@@ -96,7 +96,14 @@
 
          </div>
          <div class="col-md-3 text-center">
-                                   <div class="price">Цена: {{ current_product.price_1 }} &#8381;</div><br>
+                                               {% if current_product.price_2  %}
+                               Цена со скидкой: <div class="price" class=""><b class="text-success">{{ current_product.price_1 }} &#8381;</b></div>
+                                Обычная цена:<div class="price" ><s class="text-danger text-small">{{ current_product.price_2 }} &#8381</s></div>
+
+                                {% else %}
+                            Цена:<div class="price">{{ current_product.price_1 }} &#8381;</div>
+
+                                {% endif %}<br>
                         <div class="row">
                         <div class="input-group col-md-8 offset-md-2">
                         <div class="input-group-prepend">

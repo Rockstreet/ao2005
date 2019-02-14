@@ -32,9 +32,9 @@ class BaseShop(models.Model):
     created_date = models.DateTimeField(_("Дата создания"), auto_now_add=True, editable=False)
     edited_date = models.DateTimeField(_("Дата редактирования"), auto_now=True, editable=False, null=True)
 
-    title = models.TextField(_("Название"), default='')
-    meta_description = models.TextField(_("Description"), blank=True)
-    meta_keywords = models.TextField(_("Keywords"), blank=True)
+    title = models.TextField(_("Название"), max_length=10000, default='')
+    meta_description = models.TextField(_("Description"), max_length=10000, blank=True)
+    meta_keywords = models.TextField(_("Keywords"), max_length=10000, blank=True)
     slug = models.SlugField(_("Имя для url"), unique=True, blank=True, help_text=_("Только английские буквы, цифры и знаки минус и подчеркивание."))
     tags = TaggableManager(_("Тэги"), blank=True),
     file = ImageField(_("Фото для категории 250X250"), upload_to='category', blank=True)
@@ -79,6 +79,7 @@ class Item(BaseShop):
     status = models.BooleanField("Опубликовано", default=True)
     offer = models.BooleanField("Показывать в спецпредложениях", default=False, blank=True)
     price_1 = models.DecimalField(_("Цена"), max_digits=10, decimal_places=2, blank=True, null=True)
+    price_2 = models.DecimalField(_("Цена до скидки"), max_digits=10, decimal_places=2, blank=True, null=True)
     num = models.IntegerField(default=0, verbose_name=u'Порядковый номер')
     brand = models.ForeignKey(Brands, verbose_name=u'Бренд', null=True, blank=True, on_delete=models.CASCADE)
     in_stock = models.IntegerField(default=0, verbose_name=u'Количество на складе')

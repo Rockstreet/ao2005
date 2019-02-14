@@ -15,8 +15,10 @@
     <script src="https://3dsec.sberbank.ru/demopayment/docsite/assets/js/ipay.js"></script>
 
     <title>{% block title %}{% endblock title %} - Активный отдых</title>
+    <meta name="description" content="{% block description %}{% endblock description %} - Активный отдых" />
+    <meta name="keywords" content="{% block keywords %}{% endblock keywords %} - Активный отдых" />
 
-    <meta name="yandex-verification" content="264bd0e584a73622" />
+
 
 
     <script type="text/javascript">
@@ -63,7 +65,7 @@ api_token : "ueccqnlk46oudtm79chgeed7qc"
 <div class="row main_menu text-center ">
 
 
-    <div class="col-md-1 offset-1 align-middle" >
+    <div class="col-md-1 offset-md-1 align-middle" >
 
         <a href="/">
 
@@ -115,15 +117,15 @@ api_token : "ueccqnlk46oudtm79chgeed7qc"
 
     <div class="col-md-7">
         <a href="/" title="На главную">
-    <img src="/static/images/main_logo.png" class="main_logo">
+    <img src="/static/images/main_logo.png" class="main_logo img-fluid">
             </a>
     </div>
 
-    <div class="col-md-1 offset-1">
+    <div class="col-md-1 offset-md-1 col-xs-12 text-center">
     <img src="/static/images/bascket.png">
     </div>
 
-    <div class="col-md-2 text-center">
+    <div class="col-md-2 text-center ">
 
         <span class="basket-text">Товаров в корзине <b>{{ cart.item_count }}</b>
         на сумму <b>{{ real_count_cart }}  р.</b>
@@ -157,6 +159,11 @@ api_token : "ueccqnlk46oudtm79chgeed7qc"
 
 
 {% block content %}
+
+
+
+
+
 
 
 
@@ -270,11 +277,11 @@ api_token : "ueccqnlk46oudtm79chgeed7qc"
             <h2>КОНТАКТЫ</h2>
 
             <div class="adres_line">г. Воронеж<br>
-                ул. Героев Сибиряков, 67</div>
+                ул. Героев Сибиряков, 67а</div>
 
             <div class="phone_line">(473) 220 96 65</div>
 
-            <div class="link_line"><a href="http://ao2005.ru">ao2005.ru</a></div>
+            <div class="link_line"><a href="http://ao2005.ru">www.ao2005.ru</a></div>
 
         </div>
     </div>
@@ -310,6 +317,8 @@ api_token : "ueccqnlk46oudtm79chgeed7qc"
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.1/holder.min.js"></script>
 <script src="/static/lightbox/ekko-lightbox.js"></script>
+<script type="text/javascript" src="//web-ptica.ru/VRV-files/knopkavverh/9.js"></script>
+
 <link href="/static/open-iconic-master/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 
 <script language="JavaScript">
@@ -447,7 +456,22 @@ $(".input-number").keydown(function (e) {
                 }
             }
         </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
+   ym(52051428, "init", {
+        id:52051428,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52051428" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 
 </body>

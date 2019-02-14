@@ -1,9 +1,17 @@
+
+
+
+
+
+
 html, body {
     height: 100%;
     min-height: 100%;
     font-family: Arial;
 
 }
+
+
 
 body{
 
@@ -114,16 +122,6 @@ margin-top: auto;
     color: #851f11;
 }
 
-.big_img_blok{
-    margin-top: 40px;
-    display: table;
-}
-
-.inline_bloks {
-    display: table-cell;
-    width: 10%;
-    content: '';
-}
 
 h1{
     font-size: 28px;
@@ -376,3 +374,44 @@ text-align: center;
     font-size: 20px;
     color: #851f11;
 }
+
+.content_block
+{
+    margin: 0px 50px 20px 50px;
+}
+
+.content_block a{
+    color: #cd0a0a;
+}
+
+.content_block a:hover{color: #ff800f ;
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .logo_block {height: 300px;}
+
+    .inline_bloks img{width: 100%; padding-top:15px;}
+
+}
+
+@media screen and (min-width: 600px){
+
+    .big_img_blok{
+    margin-top: 40px;
+    display: table;
+}
+
+.inline_bloks {
+    display: table-cell;
+    width: 10%;
+    content: '';
+}
+
+
+
+}
+
+
+

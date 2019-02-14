@@ -55,9 +55,9 @@ class PostOrder(View):
 
 
         if(request.user.is_authenticated):
-            send_message = '<h2>Заказ с сайта Активныый отдых от пользователя '+user_name+' </h2>'
+            send_message = '<h2>Заказ с сайта Активный отдых от пользователя '+user_name+' </h2>'
         else:
-            send_message = '<h2>Анонимный заказ с сайта Активныый отдых </h2>'
+            send_message = '<h2>Анонимный заказ с сайта Активный отдых </h2>'
 
         send_message = send_message + '<b>Имя:</b> ' + name + '<br><br>'
         send_message = send_message + '<b>Телефон:</b> ' + phone + '<br><br>'
@@ -190,11 +190,11 @@ class DetailView(generic.DetailView):
 
         try:
             self.kwargs['brand']
-            context['item_list'] = current_category.item_set.filter(brand=self.kwargs['brand']).filter(in_stock__gte = 0)
+            context['item_list'] = current_category.item_set.filter(brand=self.kwargs['brand']).filter(in_stock__gte = 0).order_by('title')
             context['this_brand'] = int(self.kwargs['brand'])
 
         except:
-            context['item_list'] = current_category.item_set.filter(in_stock__gte = 0)
+            context['item_list'] = current_category.item_set.filter(in_stock__gte = 0).order_by('title')
 
 
         brand=[]
@@ -206,7 +206,10 @@ class DetailView(generic.DetailView):
 
         brand_unic = list(set(brand))
 
-        # print(brand_unic)
+
+        brand_unic.sort(key=lambda t: t.title)
+
+
 
 
         context['brand'] = brand
@@ -318,6 +321,7 @@ def capi(request):
             title = request.POST['title']
             in_stock = request.POST['in_stock']
             price_1 = request.POST['price_1']
+            price_2 = request.POST['price_2']
             category = request.POST['category']
 
 
@@ -331,7 +335,7 @@ def capi(request):
 
                 slug=slugify(''.join(alphabet.get(w, w) for w in title.lower()))+'-'+id1c;
 
-                this_object = Item(title=title, meta_description=title,meta_keywords=title,slug=slug[:49],id1c=id1c,price_1=price_1,in_stock=in_stock)
+                this_object = Item(title=title, meta_description=title,meta_keywords=title,slug=slug[:40]+id1c,id1c=id1c,price_1=price_1,price_2=price_2,in_stock=in_stock)
 
                 this_object.save()
 
@@ -339,13 +343,23 @@ def capi(request):
 
                 this_object.category.add(cat)
 
+
+
                 answer = 'Product add'
             else:
                 this_object = Item.objects.filter(id1c=id1c).first()
                 this_object.title=title
                 this_object.price_1=Decimal(price_1)
+                this_object.price_2 = Decimal(price_2)
                 this_object.in_stock=in_stock
                 this_object.save()
+
+                cat = Category.objects.filter(code1c=category).first()
+
+                if cat:
+                    this_object.category.clear()
+                    this_object.category.add(cat)
+
                 answer = 'Product edited'
 
         else:
